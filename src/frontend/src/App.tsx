@@ -845,10 +845,10 @@ function InsightsCarousel() {
         <div className="container">
           {/* Section header */}
           <div className="mb-14 text-center">
-            <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-400">
+            <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
               Insights
-            </p>
-            <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+            </h1>
+            <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
               Insights for Leaders
             </h2>
             <p className="mx-auto max-w-xl font-body text-lg text-white/65">
@@ -963,10 +963,10 @@ function GlobalImpactSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-aqua-900/30" />
         <div className="absolute inset-0 flex items-center">
           <div className="container">
-            <p className="font-body text-xs font-semibold uppercase tracking-widest text-aqua-300 mb-2">
+            <h1 className="font-display text-4xl font-bold tracking-tight text-aqua-300 md:text-5xl mb-2">
               Global Impact
-            </p>
-            <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+            </h1>
+            <h2 className="font-display text-2xl font-semibold text-white mt-2">
               Companies Transformed by Lean Six Sigma
             </h2>
           </div>
@@ -974,10 +974,10 @@ function GlobalImpactSection() {
       </div>
       <div className="container pt-12">
         <div className="mb-12">
-          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
             Global Impact
-          </p>
-          <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          </h1>
+          <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
             Companies Transformed by Lean Six Sigma
           </h2>
           <p className="max-w-xl font-body text-lg text-muted-foreground">
@@ -1478,20 +1478,20 @@ function App() {
         <section id="services" className="py-24 md:py-32">
           <div className="container">
             <div className="mb-16">
-              <motion.p
+              <motion.h1
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600"
+                className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl"
               >
                 Our Services
-              </motion.p>
+              </motion.h1>
               <motion.h2
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl"
+                className="mb-4 font-display text-2xl font-semibold text-foreground mt-2"
               >
                 What We Deliver
               </motion.h2>
@@ -1515,7 +1515,7 @@ function App() {
                 delay={0}
               />
               <ServiceCard
-                gradientFallback
+                image="/assets/generated/service-ops-excellence.dim_600x400.jpg"
                 title="Operational Excellence Systems"
                 description="SOPs, process maps, KPIs, and governance frameworks that bring clarity, consistency, and accountability."
                 delay={100}
@@ -1568,20 +1568,20 @@ function App() {
         <section id="industries" className="bg-slate-50 py-24 md:py-32">
           <div className="container">
             <div className="mb-12">
-              <motion.p
+              <motion.h1
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600"
+                className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl"
               >
                 Our Reach
-              </motion.p>
+              </motion.h1>
               <motion.h2
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl"
+                className="mb-4 font-display text-2xl font-semibold text-foreground mt-2"
               >
                 Industries We Serve
               </motion.h2>
@@ -1731,10 +1731,10 @@ function App() {
               className="grid gap-16 lg:grid-cols-[1.4fr,1fr]"
             >
               <div>
-                <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-400">
+                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
                   About Us
-                </p>
-                <h2 className="mb-8 font-display text-4xl font-bold leading-tight text-white md:text-5xl">
+                </h1>
+                <h2 className="mb-8 font-display text-2xl font-semibold text-white mt-2">
                   A Partner in
                   <br />
                   <span className="text-aqua-400">Performance</span>
@@ -1933,10 +1933,10 @@ function App() {
         <section id="case-studies" className="py-24 md:py-32">
           <div className="container">
             <div className="mb-16">
-              <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
                 Case Studies
-              </p>
-              <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+              </h1>
+              <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
                 Impact in Action
               </h2>
               <p className="max-w-xl font-body text-lg text-muted-foreground">
@@ -1969,10 +1969,10 @@ function App() {
         <section id="careers" className="bg-slate-50 py-24 md:py-32">
           <div className="container">
             <div className="mx-auto max-w-2xl text-center mb-14">
-              <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
                 Join the Team
-              </p>
-              <h2 className="mb-5 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+              </h1>
+              <h2 className="mb-5 font-display text-2xl font-semibold text-foreground mt-2">
                 Join Our Team
               </h2>
               <p className="font-body text-lg text-muted-foreground">
@@ -2166,10 +2166,10 @@ function App() {
         <section id="book" className="bg-white py-24 md:py-32">
           <div className="container">
             <div className="mx-auto max-w-3xl text-center mb-10">
-              <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
                 Schedule a Call
-              </p>
-              <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+              </h1>
+              <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
                 Book a Free 30-Min Consultation
               </h2>
               <p className="font-body text-lg text-muted-foreground">
@@ -2243,10 +2243,10 @@ function App() {
 
             <div className="grid gap-16 lg:grid-cols-[1.4fr,1fr]">
               <div>
-                <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
                   Get In Touch
-                </p>
-                <h2 className="mb-6 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+                </h1>
+                <h2 className="mb-6 font-display text-2xl font-semibold text-foreground mt-2">
                   Let's Build a Better Operation
                 </h2>
                 <p className="mb-10 font-body text-lg text-muted-foreground">
