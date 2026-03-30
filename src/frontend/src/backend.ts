@@ -98,12 +98,16 @@ export interface ContactSubmission {
 }
 export type Time = bigint;
 export interface backendInterface {
+    _initializeAccessControlWithSecret(secret: string): Promise<void>;
     getAllSubmissions(page: bigint, pageSize: bigint): Promise<Array<ContactSubmission>>;
     getSubmissionCount(): Promise<bigint>;
     submitContactForm(name: string, email: string, company: string | null, message: string): Promise<string>;
 }
 import type { ContactSubmission as _ContactSubmission, Time as _Time } from "./declarations/backend.did.d.ts";
 export class Backend implements backendInterface {
+    async _initializeAccessControlWithSecret(secret: string): Promise<void> {
+        await (this.actor as any)._initializeAccessControlWithSecret(secret);
+    }
     constructor(private actor: ActorSubclass<_SERVICE>, private _uploadFile: (file: ExternalBlob) => Promise<Uint8Array>, private _downloadFile: (file: Uint8Array) => Promise<ExternalBlob>, private processError?: (error: unknown) => never){}
     async getAllSubmissions(arg0: bigint, arg1: bigint): Promise<Array<ContactSubmission>> {
         if (this.processError) {
