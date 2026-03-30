@@ -16,6 +16,8 @@ import {
   CheckCircle2,
   ChefHat,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Clock,
   Factory,
   HeartPulse,
@@ -36,7 +38,7 @@ import {
 } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import type React from "react";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Toaster, toast } from "sonner";
 
 const STATS = [
@@ -372,8 +374,8 @@ const FOCUS_AREAS = [
 const TAGS = [
   "Lean Six Sigma",
   "Process Design",
-  "SMB Focus",
-  "Hands-On",
+  "Remove Non-Value Added Activities",
+  "Improve Profits",
   "Vancouver",
 ];
 
@@ -798,6 +800,150 @@ const RESOURCES = [
   },
 ];
 
+function InsightsCarousel() {
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const next = useCallback(() => {
+    setCurrent((c) => (c + 1) % LEADER_QUOTES.length);
+  }, []);
+
+  const prev = useCallback(() => {
+    setCurrent((c) => (c - 1 + LEADER_QUOTES.length) % LEADER_QUOTES.length);
+  }, []);
+
+  useEffect(() => {
+    if (isPaused) return;
+    timerRef.current = setTimeout(next, 5000);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isPaused, next]);
+
+  const quote = LEADER_QUOTES[current];
+
+  return (
+    <section
+      id="insights"
+      className="relative overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/* Background */}
+      <div className="absolute inset-0">
+        <img
+          src="/assets/generated/section-insights-bg.dim_1200x600.jpg"
+          alt=""
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/92 via-slate-900/75 to-aqua-900/55" />
+      </div>
+
+      <div className="relative z-10 py-24 md:py-32">
+        <div className="container">
+          {/* Section header */}
+          <div className="mb-14 text-center">
+            <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-400">
+              Insights
+            </p>
+            <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-white md:text-5xl">
+              Insights for Leaders
+            </h2>
+            <p className="mx-auto max-w-xl font-body text-lg text-white/65">
+              What global business leaders say about the power of Lean Six
+              Sigma.
+            </p>
+          </div>
+
+          {/* Carousel */}
+          <div className="relative mx-auto max-w-4xl min-h-[320px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={current}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.55, ease: "easeOut" }}
+                className="flex flex-col items-center text-center px-6 md:px-16"
+                data-ocid="insights.panel"
+              >
+                {/* Decorative quote mark */}
+                <span
+                  className="font-serif text-[7rem] leading-none text-aqua-400/40 select-none mb-2"
+                  aria-hidden="true"
+                >
+                  &#8220;
+                </span>
+
+                {/* Quote text */}
+                <p className="mb-8 font-display text-xl leading-relaxed text-white/90 italic md:text-2xl lg:text-3xl">
+                  {quote.quote}
+                </p>
+
+                {/* Author */}
+                <div className="flex flex-col items-center gap-2">
+                  <p className="font-display text-lg font-bold text-white">
+                    {quote.name}
+                  </p>
+                  <p className="font-body text-sm text-white/60">
+                    {quote.title}
+                  </p>
+                  <span className="mt-1 inline-block rounded-full border border-aqua-500/50 bg-aqua-500/15 px-4 py-1.5 font-body text-xs font-semibold text-aqua-300">
+                    {quote.tag}
+                  </span>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Left / Right Arrow Buttons */}
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous quote"
+              data-ocid="insights.pagination_prev"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-aqua-400/60"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next quote"
+              data-ocid="insights.pagination_next"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-aqua-400/60"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+          </div>
+
+          {/* Dot indicators */}
+          <div
+            className="mt-10 flex justify-center gap-2.5"
+            data-ocid="insights.tab"
+          >
+            {LEADER_QUOTES.map((q, i) => (
+              <button
+                key={q.name}
+                type="button"
+                onClick={() => setCurrent(i)}
+                aria-label={`Go to quote ${i + 1}`}
+                data-ocid={`insights.item.${i + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  i === current
+                    ? "w-8 bg-aqua-400"
+                    : "w-2 bg-white/30 hover:bg-white/50"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function GlobalImpactSection() {
   const [filter, setFilter] = useState<"All" | "Canada" | "USA">("All");
   const filtered =
@@ -807,7 +953,26 @@ function GlobalImpactSection() {
 
   return (
     <section id="companies" className="bg-white py-24 md:py-32">
-      <div className="container">
+      {/* Banner image */}
+      <div className="relative mb-0 overflow-hidden h-56 md:h-72">
+        <img
+          src="/assets/generated/section-global-impact.dim_800x500.jpg"
+          alt="Global Impact"
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-aqua-900/30" />
+        <div className="absolute inset-0 flex items-center">
+          <div className="container">
+            <p className="font-body text-xs font-semibold uppercase tracking-widest text-aqua-300 mb-2">
+              Global Impact
+            </p>
+            <h2 className="font-display text-3xl font-bold text-white md:text-4xl">
+              Companies Transformed by Lean Six Sigma
+            </h2>
+          </div>
+        </div>
+      </div>
+      <div className="container pt-12">
         <div className="mb-12">
           <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
             Global Impact
@@ -879,10 +1044,10 @@ function ResourcesSection() {
     <section id="resources" className="bg-slate-50 py-24 md:py-32">
       <div className="container">
         <div className="mb-16">
-          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             Resources
-          </p>
-          <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          </h1>
+          <h2 className="mb-4 font-display text-2xl font-semibold text-muted-foreground mt-2">
             Explore our Resources
           </h2>
           <p className="max-w-2xl font-body text-lg text-muted-foreground">
@@ -891,6 +1056,22 @@ function ResourcesSection() {
             across Metro Vancouver and beyond.
           </p>
         </div>
+
+        {/* Operations feature image */}
+        <div className="relative mb-12 overflow-hidden rounded-2xl h-52 md:h-64">
+          <img
+            src="/assets/generated/section-operations.dim_800x500.jpg"
+            alt="Operations"
+            className="h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/30 to-transparent rounded-2xl" />
+          <div className="absolute inset-0 flex items-center px-8">
+            <p className="font-display text-xl font-bold text-white md:text-2xl max-w-lg">
+              Transforming operations across Metro Vancouver and beyond
+            </p>
+          </div>
+        </div>
+
         <div
           ref={anim.ref as React.RefObject<HTMLDivElement>}
           className="grid gap-8 md:grid-cols-2"
@@ -958,7 +1139,6 @@ function App() {
     };
   }, []);
 
-  const insightsAnim = useScrollAnimation({ threshold: 0.15 });
   const aboutAnim = useScrollAnimation({ threshold: 0.15 });
 
   const [formData, setFormData] = useState({
@@ -1098,7 +1278,7 @@ function App() {
       <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-white/90 backdrop-blur-lg">
         <div className="container flex h-18 items-center justify-between py-4">
           <div className="font-display text-xl font-bold tracking-tight">
-            <span className="gradient-text">Lean Genie Advisors</span>
+            <span className="gradient-text">Lean Genie Advisors Inc.</span>
           </div>
 
           <nav
@@ -1178,7 +1358,7 @@ function App() {
         <section className="relative min-h-[92vh] overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/assets/generated/hero-consulting.dim_1200x700.jpg"
+              src="/assets/generated/hero-network.dim_1400x700.jpg"
               alt=""
               className="h-full w-full object-cover object-center"
               loading="eager"
@@ -1203,7 +1383,7 @@ function App() {
               >
                 <MapPin className="h-3 w-3 text-aqua-300" />
                 <span className="font-body text-xs font-semibold uppercase tracking-widest text-white/80">
-                  Vancouver · Operational Excellence
+                  Lower Mainland, British Columbia
                 </span>
               </motion.div>
 
@@ -1213,13 +1393,9 @@ function App() {
                 transition={{ delay: 0.35, duration: 0.7 }}
                 className="mb-6 font-display text-5xl font-bold leading-[1.08] tracking-tight text-white md:text-6xl lg:text-7xl"
               >
-                Operational
+                Strategic Vision Meets
                 <br />
-                <span className="hero-accent-text">Excellence</span>
-                <br />
-                for the Modern
-                <br />
-                Business
+                <span className="hero-accent-text">Operational Excellence</span>
               </motion.h1>
 
               <motion.p
@@ -1360,6 +1536,34 @@ function App() {
           </div>
         </section>
 
+        {/* Growth & Team Banner */}
+        <section className="relative overflow-hidden py-0">
+          <div className="relative h-[480px] w-full">
+            <img
+              src="/assets/generated/multicultural-team-growth.dim_1200x675.jpg"
+              alt="Multicultural team reviewing business growth charts"
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.08_200/0.75)] via-[oklch(0.14_0.07_195/0.45)] to-transparent" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="container">
+                <div className="max-w-xl text-white">
+                  <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-300">
+                    Our Impact
+                  </p>
+                  <h2 className="mb-4 font-display text-3xl font-bold leading-tight md:text-4xl">
+                    Driving Growth Across Every Engagement
+                  </h2>
+                  <p className="font-body text-base leading-relaxed text-white/80">
+                    Our diverse team of experts partners with your organization
+                    to deliver measurable, lasting results -- backed by data and
+                    driven by collaboration.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Industries We Serve */}
         <section id="industries" className="bg-slate-50 py-24 md:py-32">
           <div className="container">
@@ -1637,31 +1841,89 @@ function App() {
                 </div>
               </div>
 
+              <div className="mb-6 overflow-hidden rounded-2xl">
+                <img
+                  src="/assets/generated/section-about-bg.dim_900x500.jpg"
+                  alt="Network operations"
+                  className="h-48 w-full object-cover object-center md:h-56"
+                />
+              </div>
               <div className="grid grid-cols-2 gap-4">
-                <AnimatedStatCard
-                  label="Focus"
-                  value="SMB Operations"
-                  delay={0}
-                  dark
-                />
-                <AnimatedStatCard
-                  label="Approach"
-                  value="Lean Six Sigma"
-                  delay={100}
-                  dark
-                />
-                <AnimatedStatCard
-                  label="Location"
-                  value="Vancouver, BC"
-                  delay={200}
-                  dark
-                />
-                <AnimatedStatCard
-                  label="Engagement Style"
-                  value="Hands-On Advisory"
-                  delay={300}
-                  dark
-                />
+                {[
+                  {
+                    value: "20+",
+                    title: "Transformations Delivered",
+                    desc: "Successful projects across diverse industries",
+                  },
+                  {
+                    value: "$2M+",
+                    title: "Value Created",
+                    desc: "Measurable impact for our clients",
+                  },
+                  {
+                    value: "15+",
+                    title: "Years of Excellence",
+                    desc: "Deep expertise in lean methodologies",
+                  },
+                  {
+                    value: "99%",
+                    title: "Client Satisfaction",
+                    desc: "Consistent delivery of exceptional results",
+                  },
+                ].map((stat, i) => (
+                  <motion.div
+                    key={stat.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                  >
+                    <div className="mb-1 font-display text-3xl font-bold text-aqua-400">
+                      {stat.value}
+                    </div>
+                    <div className="mb-1 font-semibold text-white">
+                      {stat.title}
+                    </div>
+                    <div className="text-xs text-white/60">{stat.desc}</div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                {[
+                  {
+                    title: "Results-Driven",
+                    desc: "Every engagement is measured by tangible outcomes and lasting impact.",
+                  },
+                  {
+                    title: "Collaborative",
+                    desc: "We work alongside your teams, building capabilities that endure.",
+                  },
+                  {
+                    title: "Innovative",
+                    desc: "Combining proven methodologies with cutting-edge technology solutions.",
+                  },
+                  {
+                    title: "Excellence",
+                    desc: "Committed to the highest standards in everything we do.",
+                  },
+                ].map((card, i) => (
+                  <motion.div
+                    key={card.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                  >
+                    <div className="mb-2 h-2 w-2 rounded-full bg-aqua-400" />
+                    <div className="mb-1 font-display text-sm font-bold text-aqua-300">
+                      {card.title}
+                    </div>
+                    <div className="text-xs text-white/60">{card.desc}</div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
@@ -1694,57 +1956,8 @@ function App() {
           </div>
         </section>
 
-        {/* Insights */}
-        <section id="insights" className="bg-slate-50 py-24 md:py-32">
-          <div className="container">
-            <div className="mb-16">
-              <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
-                Insights
-              </p>
-              <h2 className="mb-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
-                Insights for Leaders
-              </h2>
-              <p className="max-w-xl font-body text-lg text-muted-foreground">
-                What global business leaders say about the power of Lean Six
-                Sigma.
-              </p>
-            </div>
-
-            <div
-              ref={insightsAnim.ref as React.RefObject<HTMLDivElement>}
-              className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
-            >
-              {LEADER_QUOTES.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={insightsAnim.isVisible ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: i * 0.1, duration: 0.55 }}
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover flex flex-col"
-                >
-                  <div className="absolute right-0 top-0 h-24 w-24 rounded-bl-3xl bg-gradient-to-bl from-aqua-100 to-transparent" />
-                  <span className="text-5xl font-serif text-aqua-300 leading-none mb-4">
-                    "
-                  </span>
-                  <p className="mb-6 font-body leading-relaxed text-muted-foreground italic flex-1">
-                    {item.quote}
-                  </p>
-                  <div>
-                    <p className="font-display text-base font-bold text-foreground">
-                      {item.name}
-                    </p>
-                    <p className="font-body text-sm text-muted-foreground mb-3">
-                      {item.title}
-                    </p>
-                    <span className="inline-block rounded-full bg-aqua-100 px-3 py-1 font-body text-xs font-semibold text-aqua-700">
-                      {item.tag}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        {/* Insights - Hero Carousel */}
+        <InsightsCarousel />
 
         {/* Global Impact - Companies */}
         <GlobalImpactSection />
@@ -1981,13 +2194,13 @@ function App() {
                 {
                   icon: <Mail className="h-5 w-5 text-aqua-600" />,
                   title: "Email Us",
-                  detail: "contact@leangenie.ca",
+                  detail: "info@leangenieadvisors.ca",
                   action: null,
                 },
                 {
                   icon: <MapPin className="h-5 w-5 text-aqua-600" />,
                   title: "Visit Us",
-                  detail: "Vancouver, British Columbia, Canada",
+                  detail: "Delta, British Columbia, Canada",
                   action: null,
                 },
                 {
@@ -2194,7 +2407,7 @@ function App() {
                           Email
                         </p>
                         <p className="font-body text-white/85">
-                          contact@leangenie.ca
+                          info@leangenieadvisors.ca
                         </p>
                       </div>
                     </div>
@@ -2209,7 +2422,7 @@ function App() {
                         <p className="font-body text-white/85">
                           Monday – Friday
                           <br />
-                          9:00 AM – 6:00 PM PST
+                          8:00 AM – 7:00 PM PST
                         </p>
                       </div>
                     </div>
