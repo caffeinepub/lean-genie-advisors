@@ -1509,13 +1509,13 @@ function App() {
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               <ServiceCard
-                image="/assets/generated/service-lean-process.dim_800x500.jpg"
+                image="/assets/generated/lean-process-optimization.dim_800x500.jpg"
                 title="Lean Process Optimization"
                 description="Data-driven improvements that eliminate waste, reduce delays, and streamline workflows across your operations."
                 delay={0}
               />
               <ServiceCard
-                image="/assets/generated/service-operational-excellence.dim_800x500.jpg"
+                image="/assets/generated/operational-excellence-systems.dim_800x500.jpg"
                 title="Operational Excellence Systems"
                 description="SOPs, process maps, KPIs, and governance frameworks that bring clarity, consistency, and accountability."
                 delay={100}
