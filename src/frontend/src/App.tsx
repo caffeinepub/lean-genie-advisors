@@ -1723,22 +1723,29 @@ function App() {
         {/* About */}
         <section
           id="about"
-          className="overflow-hidden bg-slate-950 py-24 text-white md:py-32"
+          className="overflow-hidden py-24 text-white md:py-32 relative"
+          style={{
+            backgroundImage:
+              "url('/assets/generated/section-about-bg.dim_900x500.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
         >
-          <div className="container">
+          <div className="absolute inset-0 bg-slate-950/85 z-0" />
+          <div className="container relative z-10">
+            <div className="mb-12 text-center">
+              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
+                About Us
+              </h1>
+              <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
+                A Partner in <span className="text-aqua-400">Performance</span>
+              </h2>
+            </div>
             <div
               ref={aboutAnim.ref as React.RefObject<HTMLDivElement>}
-              className="grid gap-16 lg:grid-cols-[1.4fr,1fr]"
+              className="grid gap-12 lg:grid-cols-2"
             >
               <div>
-                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
-                  About Us
-                </h1>
-                <h2 className="mb-8 font-display text-2xl font-semibold text-white mt-2">
-                  A Partner in
-                  <br />
-                  <span className="text-aqua-400">Performance</span>
-                </h2>
                 <p className="mb-5 font-body text-lg leading-relaxed text-white/70">
                   Lean Genie Advisors is a Vancouver-based consulting practice
                   focused on helping small and mid-sized businesses operate with
@@ -1841,89 +1848,84 @@ function App() {
                 </div>
               </div>
 
-              <div className="mb-6 overflow-hidden rounded-2xl">
-                <img
-                  src="/assets/generated/section-about-bg.dim_900x500.jpg"
-                  alt="Network operations"
-                  className="h-48 w-full object-cover object-center md:h-56"
-                />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  {
-                    value: "20+",
-                    title: "Transformations Delivered",
-                    desc: "Successful projects across diverse industries",
-                  },
-                  {
-                    value: "$2M+",
-                    title: "Value Created",
-                    desc: "Measurable impact for our clients",
-                  },
-                  {
-                    value: "15+",
-                    title: "Years of Excellence",
-                    desc: "Deep expertise in lean methodologies",
-                  },
-                  {
-                    value: "99%",
-                    title: "Client Satisfaction",
-                    desc: "Consistent delivery of exceptional results",
-                  },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={stat.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-                  >
-                    <div className="mb-1 font-display text-3xl font-bold text-aqua-400">
-                      {stat.value}
-                    </div>
-                    <div className="mb-1 font-semibold text-white">
-                      {stat.title}
-                    </div>
-                    <div className="text-xs text-white/60">{stat.desc}</div>
-                  </motion.div>
-                ))}
-              </div>
+              <div>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    {
+                      value: "20+",
+                      title: "Transformations Delivered",
+                      desc: "Successful projects across diverse industries",
+                    },
+                    {
+                      value: "$2M+",
+                      title: "Value Created",
+                      desc: "Measurable impact for our clients",
+                    },
+                    {
+                      value: "15+",
+                      title: "Years of Excellence",
+                      desc: "Deep expertise in lean methodologies",
+                    },
+                    {
+                      value: "99%",
+                      title: "Client Satisfaction",
+                      desc: "Consistent delivery of exceptional results",
+                    },
+                  ].map((stat, i) => (
+                    <motion.div
+                      key={stat.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                    >
+                      <div className="mb-1 font-display text-3xl font-bold text-aqua-400">
+                        {stat.value}
+                      </div>
+                      <div className="mb-1 font-semibold text-white">
+                        {stat.title}
+                      </div>
+                      <div className="text-xs text-white/60">{stat.desc}</div>
+                    </motion.div>
+                  ))}
+                </div>
 
-              <div className="grid grid-cols-2 gap-4 mt-4">
-                {[
-                  {
-                    title: "Results-Driven",
-                    desc: "Every engagement is measured by tangible outcomes and lasting impact.",
-                  },
-                  {
-                    title: "Collaborative",
-                    desc: "We work alongside your teams, building capabilities that endure.",
-                  },
-                  {
-                    title: "Innovative",
-                    desc: "Combining proven methodologies with cutting-edge technology solutions.",
-                  },
-                  {
-                    title: "Excellence",
-                    desc: "Committed to the highest standards in everything we do.",
-                  },
-                ].map((card, i) => (
-                  <motion.div
-                    key={card.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
-                  >
-                    <div className="mb-2 h-2 w-2 rounded-full bg-aqua-400" />
-                    <div className="mb-1 font-display text-sm font-bold text-aqua-300">
-                      {card.title}
-                    </div>
-                    <div className="text-xs text-white/60">{card.desc}</div>
-                  </motion.div>
-                ))}
+                <div className="grid grid-cols-2 gap-4 mt-4">
+                  {[
+                    {
+                      title: "Results-Driven",
+                      desc: "Every engagement is measured by tangible outcomes and lasting impact.",
+                    },
+                    {
+                      title: "Collaborative",
+                      desc: "We work alongside your teams, building capabilities that endure.",
+                    },
+                    {
+                      title: "Innovative",
+                      desc: "Combining proven methodologies with cutting-edge technology solutions.",
+                    },
+                    {
+                      title: "Excellence",
+                      desc: "Committed to the highest standards in everything we do.",
+                    },
+                  ].map((card, i) => (
+                    <motion.div
+                      key={card.title}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: i * 0.1 }}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
+                    >
+                      <div className="mb-2 h-2 w-2 rounded-full bg-aqua-400" />
+                      <div className="mb-1 font-display text-sm font-bold text-aqua-300">
+                        {card.title}
+                      </div>
+                      <div className="text-xs text-white/60">{card.desc}</div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -1970,7 +1972,7 @@ function App() {
           <div className="container">
             <div className="mx-auto max-w-2xl text-center mb-14">
               <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
-                Join the Team
+                Careers
               </h1>
               <h2 className="mb-5 font-display text-2xl font-semibold text-foreground mt-2">
                 Join Our Team
@@ -2394,7 +2396,7 @@ function App() {
                           Location
                         </p>
                         <p className="font-body text-white/85">
-                          Vancouver, British Columbia, Canada
+                          Delta, British Columbia, Canada
                         </p>
                       </div>
                     </div>
