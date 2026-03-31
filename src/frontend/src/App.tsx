@@ -226,7 +226,7 @@ const NAV_LINKS = [
   { label: "Global Impact", id: "companies" },
   { label: "Resources", id: "resources" },
   { label: "Careers", id: "careers" },
-  { label: "Book a Call", id: "book" },
+  { label: "Schedule Call", id: "book" },
 ];
 
 const FOOTER_NAV = [
@@ -1044,7 +1044,7 @@ function ResourcesSection() {
     <section id="resources" className="bg-slate-50 py-24 md:py-32">
       <div className="container">
         <div className="mb-16">
-          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-300 md:text-5xl">
             Resources
           </h1>
           <h2 className="mb-4 font-display text-2xl font-semibold text-muted-foreground mt-2">
@@ -1548,10 +1548,10 @@ function App() {
             <div className="absolute inset-0 flex items-center">
               <div className="container">
                 <div className="max-w-xl text-white">
-                  <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-300">
+                  <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-300 md:text-5xl">
                     Our Impact
-                  </p>
-                  <h2 className="mb-4 font-display text-3xl font-bold leading-tight md:text-4xl">
+                  </h1>
+                  <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
                     Driving Growth Across Every Engagement
                   </h2>
                   <p className="font-body text-base leading-relaxed text-white/80">
@@ -2165,25 +2165,36 @@ function App() {
         </section>
 
         {/* Book a Meeting */}
-        <section id="book" className="bg-white py-24 md:py-32">
-          <div className="container">
-            <div className="mx-auto max-w-3xl text-center mb-10">
-              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
-                Schedule a Call
-              </h1>
-              <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
-                Book a Free 30-Min Consultation
-              </h2>
-              <p className="font-body text-lg text-muted-foreground">
-                Pick a time that works for you and let's talk about how we can
-                improve your operations.
-              </p>
-            </div>
-            <div
-              className="calendly-inline-widget mx-auto rounded-2xl overflow-hidden shadow-sm border border-border"
-              data-url="https://calendly.com/leangenieadvisors-info/30min"
-              style={{ minWidth: "320px", height: "700px" }}
+        <section id="book" className="relative overflow-hidden py-24 md:py-32">
+          {/* Background - matching Insights style */}
+          <div className="absolute inset-0">
+            <img
+              src="/assets/generated/section-insights-bg.dim_1200x600.jpg"
+              alt=""
+              className="h-full w-full object-cover object-center"
             />
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/92 via-slate-900/75 to-aqua-900/55" />
+          </div>
+          <div className="relative z-10">
+            <div className="container">
+              <div className="mx-auto max-w-3xl text-center mb-10">
+                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
+                  Schedule a Call
+                </h1>
+                <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
+                  Book a Free 30-Min Consultation
+                </h2>
+                <p className="font-body text-lg text-white/65">
+                  Pick a time that works for you and let's talk about how we can
+                  improve your operations.
+                </p>
+              </div>
+              <div
+                className="calendly-inline-widget mx-auto rounded-2xl overflow-hidden shadow-sm border border-border"
+                data-url="https://calendly.com/leangenieadvisors-info/30min"
+                style={{ minWidth: "320px", height: "700px" }}
+              />
+            </div>
           </div>
         </section>
 
@@ -2207,7 +2218,7 @@ function App() {
                 },
                 {
                   icon: <CalendarCheck className="h-5 w-5 text-aqua-600" />,
-                  title: "Book a Call",
+                  title: "Schedule Call",
                   detail: "Schedule a free 30-min consultation",
                   action: "book",
                 },
@@ -2503,7 +2514,7 @@ function App() {
           </div>
 
           <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-            <p className="font-body text-sm text-white/35">
+            <div className="flex items-center gap-3">
               <a
                 href="https://www.linkedin.com/company/lean-genie-advisors-inc/"
                 target="_blank"
@@ -2513,9 +2524,16 @@ function App() {
               >
                 <Linkedin size={18} />
               </a>
-            </p>
+              <a
+                href="mailto:info@leangenieadvisors.ca"
+                aria-label="Email"
+                className="flex items-center gap-2 text-white/50 transition-colors hover:text-aqua-400"
+              >
+                <Mail size={18} />
+              </a>
+            </div>
             <p className="font-body text-sm text-white/35">
-              © {new Date().getFullYear()} Lean Genie Advisors. All rights
+              © {new Date().getFullYear()} Lean Genie Advisors Inc. All rights
               reserved. · Vancouver, BC, Canada.
             </p>
             <p className="font-body text-sm text-white/35">
