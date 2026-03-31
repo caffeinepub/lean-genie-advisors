@@ -1736,13 +1736,12 @@ function App() {
         >
           <div className="absolute inset-0 bg-slate-950/85 z-0" />
           <div className="container relative z-10">
-            <div className="mb-12 text-center">
+            <div className="mb-16 text-center">
               <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-400 md:text-5xl">
                 About Us
               </h1>
               <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
-                A Partner in{" "}
-                <span className="text-indigo-400">Performance</span>
+                A Partner in Performance
               </h2>
             </div>
             <div
