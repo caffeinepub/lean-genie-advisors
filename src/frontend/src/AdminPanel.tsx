@@ -63,7 +63,7 @@ function ResumeLink({ fileId }: { fileId: string }) {
       type="button"
       onClick={handleClick}
       disabled={loading}
-      className="text-sm font-medium text-aqua-600 underline underline-offset-2 hover:text-aqua-800 disabled:opacity-50"
+      className="text-sm font-medium text-indigo-700 underline underline-offset-2 hover:text-indigo-900 disabled:opacity-50"
     >
       {loading ? "Loading..." : "Download"}
     </button>
@@ -95,10 +95,10 @@ export default function AdminPanel() {
 
   if (!identity) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4">
+      <div className="flex min-h-screen items-center justify-center bg-indigo-50 px-4">
         <div className="w-full max-w-sm rounded-2xl border border-border bg-white p-10 shadow-sm text-center">
-          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-aqua-50 border border-aqua-100">
-            <ShieldCheck className="h-7 w-7 text-aqua-600" />
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-indigo-50 border border-indigo-100">
+            <ShieldCheck className="h-7 w-7 text-indigo-700" />
           </div>
           <h1 className="mb-2 font-display text-2xl font-bold text-foreground">
             Admin Access
@@ -110,7 +110,7 @@ export default function AdminPanel() {
             data-ocid="admin.login_button"
             onClick={() => login()}
             disabled={isLoggingIn}
-            className="w-full rounded-full font-body font-semibold"
+            className="w-full rounded-full font-body font-semibold bg-indigo-700 hover:bg-indigo-600 text-white"
           >
             {isLoggingIn ? (
               <>
@@ -135,12 +135,12 @@ export default function AdminPanel() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-indigo-50/30">
       {/* Header */}
-      <header className="sticky top-0 z-50 border-b border-border/60 bg-white/90 backdrop-blur-lg">
+      <header className="sticky top-0 z-50 border-b border-indigo-100/60 bg-white/95 shadow-sm backdrop-blur-lg">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-aqua-600">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-700">
               <ShieldCheck className="h-4 w-4 text-white" />
             </div>
             <span className="font-display text-lg font-bold text-foreground">
@@ -159,7 +159,7 @@ export default function AdminPanel() {
               variant="outline"
               size="sm"
               onClick={() => clear()}
-              className="rounded-full font-body border-border"
+              className="rounded-full font-body border-indigo-200 text-indigo-700 hover:bg-indigo-50"
             >
               <LogOut className="mr-2 h-3.5 w-3.5" />
               Sign Out
@@ -172,11 +172,11 @@ export default function AdminPanel() {
         {/* Stats */}
         <div className="mb-10 flex items-center gap-4">
           <div className="flex items-center gap-3 rounded-2xl border border-border bg-white p-5 shadow-sm">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-aqua-50 border border-aqua-100">
-              <Users className="h-5 w-5 text-aqua-600" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 border border-indigo-100">
+              <Users className="h-5 w-5 text-indigo-700" />
             </div>
             <div>
-              <p className="font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+              <p className="font-body text-xs font-semibold uppercase tracking-widest text-indigo-700">
                 Total Applicants
               </p>
               <p className="font-display text-3xl font-bold text-foreground">
@@ -216,7 +216,7 @@ export default function AdminPanel() {
             <div className="overflow-x-auto">
               <Table data-ocid="admin.applications.table">
                 <TableHeader>
-                  <TableRow className="bg-slate-50">
+                  <TableRow className="bg-indigo-50/50">
                     <TableHead className="font-body font-semibold text-xs uppercase tracking-wider">
                       #
                     </TableHead>
@@ -245,7 +245,7 @@ export default function AdminPanel() {
                     <TableRow
                       key={String(app.id)}
                       data-ocid={`admin.applications.item.${index + 1}`}
-                      className="hover:bg-slate-50/50 transition-colors"
+                      className="hover:bg-indigo-50/30 transition-colors"
                     >
                       <TableCell className="font-body text-sm text-muted-foreground">
                         {index + 1}

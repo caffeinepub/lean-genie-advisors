@@ -27,10 +27,13 @@ import {
   Mail,
   MapPin,
   Menu,
+  MessageSquare,
   Package,
+  Phone,
   ShoppingCart,
   Truck,
   UploadCloud,
+  User2,
   Users,
   UtensilsCrossed,
   Wrench,
@@ -229,7 +232,7 @@ const NAV_LINKS = [
   { label: "Schedule Call", id: "book" },
 ];
 
-const FOOTER_NAV = [
+const _FOOTER_NAV = [
   "services",
   "industries",
   "about",
@@ -365,7 +368,7 @@ const INDUSTRIES = [
   },
 ];
 
-const FOCUS_AREAS = [
+const _FOCUS_AREAS = [
   "Lean Process Optimization",
   "Operational Excellence",
   "Business Innovation",
@@ -645,23 +648,23 @@ function ExpandableCaseStudyCard({
       {/* Always-visible header */}
       <div className="p-7 pb-5">
         <div className="mb-4 flex items-start justify-between gap-3">
-          <span className="inline-block rounded-full bg-aqua-100 px-3 py-1 font-body text-xs font-semibold text-aqua-700">
+          <span className="inline-block rounded-full bg-indigo-100 px-3 py-1 font-body text-xs font-semibold text-indigo-700">
             {study.category}
           </span>
           <span className="font-body text-xs font-medium text-muted-foreground/60">
             #{study.id.toString().padStart(2, "0")}
           </span>
         </div>
-        <h3 className="mb-4 font-display text-xl font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-aqua-700">
+        <h3 className="mb-4 font-display text-xl font-bold leading-snug text-foreground transition-colors duration-300 group-hover:text-indigo-700">
           {study.title}
         </h3>
         <div className="flex flex-wrap items-center gap-4 font-body text-xs text-muted-foreground">
           <span className="flex items-center gap-1.5">
-            <MapPin className="h-3.5 w-3.5 text-aqua-500" />
+            <MapPin className="h-3.5 w-3.5 text-indigo-600" />
             {study.location}
           </span>
           <span className="flex items-center gap-1.5">
-            <Users className="h-3.5 w-3.5 text-aqua-500" />
+            <Users className="h-3.5 w-3.5 text-indigo-600" />
             {study.size}
           </span>
         </div>
@@ -698,7 +701,7 @@ function ExpandableCaseStudyCard({
                       key={action}
                       className="flex items-start gap-2.5 font-body text-sm text-foreground/80"
                     >
-                      <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-aqua-500" />
+                      <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-indigo-700" />
                       {action}
                     </li>
                   ))}
@@ -715,15 +718,15 @@ function ExpandableCaseStudyCard({
                       key={result}
                       className="flex items-start gap-2.5 font-body text-sm font-medium text-foreground"
                     >
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-aqua-500" />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-shrink-0 text-indigo-600" />
                       {result}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="rounded-xl border border-aqua-200 bg-gradient-to-br from-aqua-50 to-white p-4">
-                <h4 className="mb-1.5 font-body text-xs font-semibold uppercase tracking-wider text-aqua-700">
+              <div className="rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-4">
+                <h4 className="mb-1.5 font-body text-xs font-semibold uppercase tracking-wider text-indigo-700">
                   Impact
                 </h4>
                 <p className="font-body text-sm leading-relaxed text-foreground/80">
@@ -741,7 +744,7 @@ function ExpandableCaseStudyCard({
           type="button"
           data-ocid={`case-studies.toggle.${index + 1}`}
           onClick={() => setExpanded((prev) => !prev)}
-          className="flex w-full items-center justify-between font-body text-sm font-semibold text-aqua-600 transition-colors duration-200 hover:text-aqua-500"
+          className="flex w-full items-center justify-between font-body text-sm font-semibold text-indigo-700 transition-colors duration-200 hover:text-indigo-600"
         >
           <span>{expanded ? "Hide Details" : "View Details"}</span>
           <motion.span
@@ -838,14 +841,14 @@ function InsightsCarousel() {
           alt=""
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/92 via-slate-900/75 to-aqua-900/55" />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/92 via-indigo-900/75 to-indigo-800/50" />
       </div>
 
       <div className="relative z-10 py-24 md:py-32">
         <div className="container">
           {/* Section header */}
           <div className="mb-14 text-center">
-            <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
+            <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-400 md:text-5xl">
               Insights
             </h1>
             <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
@@ -871,7 +874,7 @@ function InsightsCarousel() {
               >
                 {/* Decorative quote mark */}
                 <span
-                  className="font-serif text-[7rem] leading-none text-aqua-400/40 select-none mb-2"
+                  className="font-serif text-[7rem] leading-none text-indigo-400/40 select-none mb-2"
                   aria-hidden="true"
                 >
                   &#8220;
@@ -890,7 +893,7 @@ function InsightsCarousel() {
                   <p className="font-body text-sm text-white/60">
                     {quote.title}
                   </p>
-                  <span className="mt-1 inline-block rounded-full border border-aqua-500/50 bg-aqua-500/15 px-4 py-1.5 font-body text-xs font-semibold text-aqua-300">
+                  <span className="mt-1 inline-block rounded-full border border-indigo-600/50 bg-indigo-700/15 px-4 py-1.5 font-body text-xs font-semibold text-indigo-300">
                     {quote.tag}
                   </span>
                 </div>
@@ -903,7 +906,7 @@ function InsightsCarousel() {
               onClick={prev}
               aria-label="Previous quote"
               data-ocid="insights.pagination_prev"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-aqua-400/60"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-indigo-400/60"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -912,7 +915,7 @@ function InsightsCarousel() {
               onClick={next}
               aria-label="Next quote"
               data-ocid="insights.pagination_next"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-aqua-400/60"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-6 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-all hover:bg-white/20 hover:border-indigo-400/60"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
@@ -932,7 +935,7 @@ function InsightsCarousel() {
                 data-ocid={`insights.item.${i + 1}`}
                 className={`h-2 rounded-full transition-all duration-300 ${
                   i === current
-                    ? "w-8 bg-aqua-400"
+                    ? "w-8 bg-indigo-400"
                     : "w-2 bg-white/30 hover:bg-white/50"
                 }`}
               />
@@ -960,10 +963,10 @@ function GlobalImpactSection() {
           alt="Global Impact"
           className="h-full w-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-aqua-900/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-indigo-900/30" />
         <div className="absolute inset-0 flex items-center">
           <div className="container">
-            <h1 className="font-display text-4xl font-bold tracking-tight text-aqua-300 md:text-5xl mb-2">
+            <h1 className="font-display text-4xl font-bold tracking-tight text-indigo-300 md:text-5xl mb-2">
               Global Impact
             </h1>
             <h2 className="font-display text-2xl font-semibold text-white mt-2">
@@ -974,7 +977,7 @@ function GlobalImpactSection() {
       </div>
       <div className="container pt-12">
         <div className="mb-12">
-          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
             Global Impact
           </h1>
           <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
@@ -996,8 +999,8 @@ function GlobalImpactSection() {
               data-ocid={`companies.${f.toLowerCase()}.toggle`}
               className={`rounded-full border px-5 py-2 font-body text-sm font-semibold transition-all duration-200 ${
                 filter === f
-                  ? "border-aqua-600 bg-aqua-600 text-white shadow-sm"
-                  : "border-aqua-300 bg-white text-aqua-700 hover:border-aqua-500 hover:bg-aqua-50"
+                  ? "border-indigo-700 bg-indigo-700 text-white shadow-sm"
+                  : "border-indigo-300 bg-white text-indigo-700 hover:border-indigo-600 hover:bg-indigo-50"
               }`}
             >
               {f === "Canada" ? "🇨🇦 Canada" : f === "USA" ? "🇺🇸 USA" : "All"}
@@ -1017,11 +1020,11 @@ function GlobalImpactSection() {
             >
               <div className="mb-4 flex items-center justify-between">
                 <span className="text-2xl">{company.flag}</span>
-                <span className="rounded-full bg-aqua-100 px-3 py-1 font-body text-xs font-semibold text-aqua-700">
+                <span className="rounded-full bg-indigo-100 px-3 py-1 font-body text-xs font-semibold text-indigo-700">
                   {company.highlight}
                 </span>
               </div>
-              <h3 className="mb-1 font-display text-xl font-bold text-foreground group-hover:text-aqua-700 transition-colors duration-300">
+              <h3 className="mb-1 font-display text-xl font-bold text-foreground group-hover:text-indigo-700 transition-colors duration-300">
                 {company.name}
               </h3>
               <p className="mb-3 font-body text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -1044,7 +1047,7 @@ function ResourcesSection() {
     <section id="resources" className="bg-slate-50 py-24 md:py-32">
       <div className="container">
         <div className="mb-16">
-          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-300 md:text-5xl">
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-300 md:text-5xl">
             Resources
           </h1>
           <h2 className="mb-4 font-display text-2xl font-semibold text-muted-foreground mt-2">
@@ -1085,10 +1088,10 @@ function ResourcesSection() {
               className="group flex flex-col rounded-2xl border border-border bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card-hover"
               data-ocid={`resources.item.${i + 1}`}
             >
-              <span className="mb-4 font-display text-5xl font-bold text-aqua-100 leading-none select-none">
+              <span className="mb-4 font-display text-5xl font-bold text-indigo-100 leading-none select-none">
                 {item.number}
               </span>
-              <h3 className="mb-3 font-display text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-aqua-700">
+              <h3 className="mb-3 font-display text-xl font-bold text-foreground transition-colors duration-300 group-hover:text-indigo-700">
                 {item.title}
               </h3>
               <p className="mb-5 font-body leading-relaxed text-muted-foreground flex-1">
@@ -1098,13 +1101,13 @@ function ResourcesSection() {
                 {item.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full bg-aqua-100 px-3 py-1 font-body text-xs font-semibold text-aqua-700"
+                    className="rounded-full bg-indigo-100 px-3 py-1 font-body text-xs font-semibold text-indigo-700"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-aqua-600 cursor-pointer group-hover:gap-2.5 transition-all duration-300">
+              <span className="inline-flex items-center gap-1.5 font-body text-sm font-semibold text-indigo-700 cursor-pointer group-hover:gap-2.5 transition-all duration-300">
                 Learn More <ArrowRight className="h-3.5 w-3.5" />
               </span>
             </motion.div>
@@ -1275,7 +1278,7 @@ function App() {
       <Toaster position="top-right" richColors />
 
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-white/90 backdrop-blur-lg">
+      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-lg shadow-sm border-b border-indigo-100/60">
         <div className="container flex h-18 items-center justify-between py-4">
           <div className="font-display text-xl font-bold tracking-tight">
             <span className="gradient-text">Lean Genie Advisors Inc.</span>
@@ -1291,7 +1294,7 @@ function App() {
                 key={link.id}
                 data-ocid={`nav.${link.id}.link`}
                 onClick={() => scrollToSection(link.id)}
-                className="font-body text-sm font-medium text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="font-body text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
               >
                 {link.label}
               </button>
@@ -1335,7 +1338,7 @@ function App() {
                     key={link.id}
                     data-ocid={`nav.mobile.${link.id}.link`}
                     onClick={() => scrollToSection(link.id)}
-                    className="text-left font-body text-base font-medium text-muted-foreground"
+                    className="text-left font-body text-base font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
                   >
                     {link.label}
                   </button>
@@ -1358,13 +1361,13 @@ function App() {
         <section className="relative min-h-[92vh] overflow-hidden">
           <div className="absolute inset-0">
             <img
-              src="/assets/generated/hero-network.dim_1400x700.jpg"
+              src="/assets/generated/hero-indigo-consulting.dim_1600x800.jpg"
               alt=""
               className="h-full w-full object-cover object-center"
               loading="eager"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.06_200/0.88)] via-[oklch(0.14_0.07_195/0.72)] to-[oklch(0.16_0.05_190/0.40)]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.08_0.04_200/0.60)] via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/90 via-indigo-900/75 to-indigo-800/50" />
+            <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/70 via-transparent to-transparent" />
           </div>
           <div className="hero-grid-overlay absolute inset-0 opacity-10" />
 
@@ -1381,7 +1384,7 @@ function App() {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 backdrop-blur-sm"
               >
-                <MapPin className="h-3 w-3 text-aqua-300" />
+                <MapPin className="h-3 w-3 text-indigo-300" />
                 <span className="font-body text-xs font-semibold uppercase tracking-widest text-white/80">
                   Lower Mainland, British Columbia
                 </span>
@@ -1419,7 +1422,7 @@ function App() {
                   data-ocid="hero.cta.primary_button"
                   size="lg"
                   onClick={() => scrollToSection("contact")}
-                  className="group rounded-full bg-aqua-500 px-8 py-3 font-body font-semibold text-white shadow-glow-sm transition-all duration-300 hover:bg-aqua-400 hover:shadow-glow-md"
+                  className="group rounded-full bg-indigo-700 px-8 py-3 font-body font-semibold text-white shadow-glow-sm transition-all duration-300 hover:bg-indigo-600 hover:shadow-glow-md"
                 >
                   Schedule a Consultation
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -1462,7 +1465,7 @@ function App() {
                   transition={{ delay: i * 0.1, duration: 0.5 }}
                   className="px-8 py-8 text-center"
                 >
-                  <div className="font-display text-3xl font-bold text-aqua-600 md:text-4xl">
+                  <div className="font-display text-3xl font-bold text-indigo-700 md:text-4xl">
                     {stat.number}
                   </div>
                   <div className="mt-1 font-body text-sm font-medium text-muted-foreground">
@@ -1482,7 +1485,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl"
+                className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl"
               >
                 Our Services
               </motion.h1>
@@ -1544,11 +1547,11 @@ function App() {
               alt="Multicultural team reviewing business growth charts"
               className="h-full w-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.12_0.08_200/0.75)] via-[oklch(0.14_0.07_195/0.45)] to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/80 via-indigo-900/50 to-transparent" />
             <div className="absolute inset-0 flex items-center">
               <div className="container">
                 <div className="max-w-xl text-white">
-                  <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-300 md:text-5xl">
+                  <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-300 md:text-5xl">
                     Our Impact
                   </h1>
                   <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
@@ -1572,7 +1575,7 @@ function App() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl"
+                className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl"
               >
                 Our Reach
               </motion.h1>
@@ -1610,7 +1613,7 @@ function App() {
                           key={industry.id}
                           value={industry.id}
                           data-ocid={`industries.${industry.id}.tab`}
-                          className="flex shrink-0 items-center gap-2 rounded-full border border-border bg-white px-4 py-2 font-body text-sm font-medium text-muted-foreground shadow-sm transition-all data-[state=active]:border-aqua-400 data-[state=active]:bg-aqua-50 data-[state=active]:text-aqua-700"
+                          className="flex shrink-0 items-center gap-2 rounded-full border border-border bg-white px-4 py-2 font-body text-sm font-medium text-muted-foreground shadow-sm transition-all data-[state=active]:border-indigo-400 data-[state=active]:bg-indigo-50 data-[state=active]:text-indigo-700"
                         >
                           {Icon && <Icon className="h-3.5 w-3.5" />}
                           {industry.label}
@@ -1631,7 +1634,7 @@ function App() {
                         key={industry.id}
                         value={industry.id}
                         data-ocid={`industries.${industry.id}.tab`}
-                        className="flex w-full items-center gap-3 rounded-xl border border-transparent bg-white px-4 py-3 text-left font-body text-sm font-medium text-muted-foreground shadow-sm transition-all hover:border-aqua-200 hover:bg-aqua-50/50 hover:text-aqua-700 data-[state=active]:border-aqua-400 data-[state=active]:bg-aqua-50 data-[state=active]:text-aqua-700 data-[state=active]:shadow-md"
+                        className="flex w-full items-center gap-3 rounded-xl border border-transparent bg-white px-4 py-3 text-left font-body text-sm font-medium text-muted-foreground shadow-sm transition-all hover:border-indigo-200 hover:bg-indigo-50/50 hover:text-indigo-700 data-[state=active]:border-indigo-400 data-[state=active]:bg-indigo-50 data-[state=active]:text-indigo-700 data-[state=active]:shadow-md"
                       >
                         {Icon && <Icon className="h-4 w-4 shrink-0" />}
                         <span>{industry.label}</span>
@@ -1660,11 +1663,11 @@ function App() {
                           {industry.description}
                         </p>
 
-                        <div className="rounded-xl border border-aqua-200 bg-gradient-to-br from-aqua-50 to-white p-6">
-                          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+                        <div className="rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-6">
+                          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-widest text-indigo-700">
                             Case Study Highlight
                           </p>
-                          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-aqua-500 px-4 py-1.5">
+                          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-indigo-700 px-4 py-1.5">
                             <span className="font-display text-sm font-bold text-white">
                               {industry.caseStudy.metric}
                             </span>
@@ -1699,11 +1702,11 @@ function App() {
                       <p className="mb-6 font-body leading-relaxed text-muted-foreground">
                         {industry.description}
                       </p>
-                      <div className="rounded-xl border border-aqua-200 bg-gradient-to-br from-aqua-50 to-white p-5">
-                        <p className="mb-2 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+                      <div className="rounded-xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-5">
+                        <p className="mb-2 font-body text-xs font-semibold uppercase tracking-widest text-indigo-700">
                           Case Study Highlight
                         </p>
-                        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-aqua-500 px-4 py-1.5">
+                        <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-indigo-700 px-4 py-1.5">
                           <span className="font-display text-sm font-bold text-white">
                             {industry.caseStudy.metric}
                           </span>
@@ -1734,11 +1737,12 @@ function App() {
           <div className="absolute inset-0 bg-slate-950/85 z-0" />
           <div className="container relative z-10">
             <div className="mb-12 text-center">
-              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
+              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-400 md:text-5xl">
                 About Us
               </h1>
               <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
-                A Partner in <span className="text-aqua-400">Performance</span>
+                A Partner in{" "}
+                <span className="text-indigo-400">Performance</span>
               </h2>
             </div>
             <div
@@ -1764,8 +1768,8 @@ function App() {
                 </p>
 
                 {/* Mission Statement */}
-                <div className="mt-10 rounded-xl border border-aqua-500/20 bg-aqua-500/10 p-6">
-                  <p className="mb-2 font-body text-xs font-semibold uppercase tracking-widest text-aqua-400">
+                <div className="mt-10 rounded-xl border border-indigo-600/20 bg-indigo-700/10 p-6">
+                  <p className="mb-2 font-body text-xs font-semibold uppercase tracking-widest text-indigo-400">
                     Our Mission
                   </p>
                   <p className="font-body text-lg italic leading-relaxed text-white/90">
@@ -1777,7 +1781,7 @@ function App() {
 
                 {/* Core Values */}
                 <div className="mt-10">
-                  <p className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-aqua-400">
+                  <p className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-indigo-400">
                     Core Values
                   </p>
                   <div className="grid gap-4 sm:grid-cols-3">
@@ -1799,7 +1803,7 @@ function App() {
                         key={value.title}
                         className="rounded-xl border border-white/10 bg-white/5 p-5"
                       >
-                        <h4 className="mb-2 font-display text-sm font-bold text-aqua-300">
+                        <h4 className="mb-2 font-display text-sm font-bold text-indigo-300">
                           {value.title}
                         </h4>
                         <p className="font-body text-xs leading-relaxed text-white/60">
@@ -1812,7 +1816,7 @@ function App() {
 
                 {/* Founding Story */}
                 <div className="mt-8 rounded-xl border border-white/10 bg-white/5 p-6">
-                  <p className="mb-2 font-body text-xs font-semibold uppercase tracking-widest text-aqua-400">
+                  <p className="mb-2 font-body text-xs font-semibold uppercase tracking-widest text-indigo-400">
                     Our Story
                   </p>
                   <p className="font-body text-sm leading-relaxed text-white/65">
@@ -1829,7 +1833,7 @@ function App() {
                   {TAGS.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full border border-aqua-500/30 bg-aqua-500/10 px-4 py-1.5 font-body text-sm font-medium text-aqua-300"
+                      className="rounded-full border border-indigo-600/30 bg-indigo-700/10 px-4 py-1.5 font-body text-sm font-medium text-indigo-300"
                     >
                       {tag}
                     </span>
@@ -1840,7 +1844,7 @@ function App() {
                   <Button
                     data-ocid="about.cta.primary_button"
                     onClick={() => scrollToSection("book")}
-                    className="rounded-full bg-aqua-500 px-8 font-body font-semibold text-white hover:bg-aqua-400"
+                    className="rounded-full bg-indigo-700 px-8 font-body font-semibold text-white hover:bg-indigo-600"
                   >
                     Book a Free Consultation
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -1880,7 +1884,7 @@ function App() {
                       transition={{ duration: 0.5, delay: i * 0.1 }}
                       className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
                     >
-                      <div className="mb-1 font-display text-3xl font-bold text-aqua-400">
+                      <div className="mb-1 font-display text-3xl font-bold text-indigo-400">
                         {stat.value}
                       </div>
                       <div className="mb-1 font-semibold text-white">
@@ -1918,8 +1922,8 @@ function App() {
                       transition={{ duration: 0.5, delay: i * 0.1 }}
                       className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm"
                     >
-                      <div className="mb-2 h-2 w-2 rounded-full bg-aqua-400" />
-                      <div className="mb-1 font-display text-sm font-bold text-aqua-300">
+                      <div className="mb-2 h-2 w-2 rounded-full bg-indigo-400" />
+                      <div className="mb-1 font-display text-sm font-bold text-indigo-300">
                         {card.title}
                       </div>
                       <div className="text-xs text-white/60">{card.desc}</div>
@@ -1935,7 +1939,7 @@ function App() {
         <section id="case-studies" className="py-24 md:py-32">
           <div className="container">
             <div className="mb-16">
-              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
+              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
                 Case Studies
               </h1>
               <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
@@ -1968,198 +1972,302 @@ function App() {
         <ResourcesSection />
 
         {/* Careers */}
-        <section id="careers" className="bg-slate-50 py-24 md:py-32">
+        <section id="careers" className="bg-white py-24 md:py-32">
           <div className="container">
-            <div className="mx-auto max-w-2xl text-center mb-14">
-              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
-                Careers
-              </h1>
-              <h2 className="mb-5 font-display text-2xl font-semibold text-foreground mt-2">
-                Join Our Team
-              </h2>
-              <p className="font-body text-lg text-muted-foreground">
-                We're always looking for sharp, driven people who want to make a
-                measurable difference in how businesses operate.
-              </p>
-            </div>
-            <div className="mx-auto max-w-2xl">
-              <form
-                data-ocid="careers.form"
-                onSubmit={handleCareerSubmit}
-                className="rounded-2xl border border-border bg-white p-8 shadow-sm"
-              >
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="career-name"
-                      className="font-body font-medium"
+            <div className="grid gap-12 lg:grid-cols-2 items-start">
+              {/* Left column — intro */}
+              <div>
+                <motion.h1
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl"
+                >
+                  Careers
+                </motion.h1>
+                <motion.h2
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1 }}
+                  className="mb-5 font-display text-2xl font-semibold text-slate-900 mt-2"
+                >
+                  Join Our Team
+                </motion.h2>
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.15 }}
+                  className="mb-10 font-body text-lg leading-relaxed text-muted-foreground"
+                >
+                  We're always looking for sharp, driven people who want to make
+                  a measurable difference in how businesses operate. Join a team
+                  that values expertise, curiosity, and real-world impact.
+                </motion.p>
+
+                {/* Feature bullets */}
+                <div className="mb-10 space-y-5">
+                  {[
+                    {
+                      icon: (
+                        <CheckCircle2 className="h-5 w-5 text-indigo-700 shrink-0 mt-0.5" />
+                      ),
+                      title: "Make a Measurable Impact",
+                      desc: "Contribute to real business transformations that deliver quantifiable results.",
+                    },
+                    {
+                      icon: (
+                        <Users className="h-5 w-5 text-indigo-700 shrink-0 mt-0.5" />
+                      ),
+                      title: "Work with Diverse Clients",
+                      desc: "SMBs across multiple industries in British Columbia and beyond.",
+                    },
+                    {
+                      icon: (
+                        <ArrowUpRight className="h-5 w-5 text-indigo-700 shrink-0 mt-0.5" />
+                      ),
+                      title: "Grow with Us",
+                      desc: "Continuous learning, mentorship, and career development opportunities.",
+                    },
+                    {
+                      icon: (
+                        <Briefcase className="h-5 w-5 text-indigo-700 shrink-0 mt-0.5" />
+                      ),
+                      title: "Flexible & Collaborative",
+                      desc: "A culture that values your expertise and supports work-life balance.",
+                    },
+                  ].map((item) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, x: -12 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      className="flex items-start gap-4"
                     >
-                      Full Name <span className="text-destructive">*</span>
+                      <div className="mt-0.5">{item.icon}</div>
+                      <div>
+                        <p className="font-body text-sm font-semibold text-foreground">
+                          {item.title}
+                        </p>
+                        <p className="font-body text-sm text-muted-foreground">
+                          {item.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                {/* Info card */}
+                <div className="rounded-2xl border border-indigo-100 bg-indigo-50 p-6">
+                  <div className="flex items-start gap-3">
+                    <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-indigo-700">
+                      <CheckCircle2 className="h-4 w-4 text-white" />
+                    </div>
+                    <div>
+                      <p className="mb-1 font-body text-sm font-semibold text-indigo-700">
+                        Personal Review Guarantee
+                      </p>
+                      <p className="font-body text-sm leading-relaxed text-muted-foreground">
+                        We review all applications personally. Expect to hear
+                        from us within 5–7 business days.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right column — form */}
+              <div>
+                <form
+                  data-ocid="careers.form"
+                  onSubmit={handleCareerSubmit}
+                  className="rounded-2xl border border-indigo-100 bg-white p-8 shadow-md"
+                >
+                  <h3 className="mb-6 font-display text-xl font-bold text-slate-900">
+                    Apply Now
+                  </h3>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label
+                        htmlFor="career-name"
+                        className="font-body font-medium flex items-center gap-1.5"
+                      >
+                        <User2 className="h-3.5 w-3.5 text-indigo-600" />
+                        Full Name <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="career-name"
+                        data-ocid="careers.name.input"
+                        placeholder="Jane Doe"
+                        value={careerForm.fullName}
+                        onChange={(e) => {
+                          setCareerForm((p) => ({
+                            ...p,
+                            fullName: e.target.value,
+                          }));
+                          setCareerErrors((p) => ({ ...p, fullName: "" }));
+                        }}
+                        className={`rounded-lg font-body focus:ring-indigo-500 focus:border-indigo-500 ${careerErrors.fullName ? "border-destructive" : ""}`}
+                      />
+                      {careerErrors.fullName && (
+                        <p
+                          data-ocid="careers.name.error_state"
+                          className="font-body text-xs text-destructive"
+                        >
+                          {careerErrors.fullName}
+                        </p>
+                      )}
+                    </div>
+                    <div className="space-y-2">
+                      <Label
+                        htmlFor="career-phone"
+                        className="font-body font-medium flex items-center gap-1.5"
+                      >
+                        <Phone className="h-3.5 w-3.5 text-indigo-600" />
+                        Phone Number <span className="text-destructive">*</span>
+                      </Label>
+                      <Input
+                        id="career-phone"
+                        data-ocid="careers.phone.input"
+                        placeholder="+1 (604) 555-0100"
+                        value={careerForm.phone}
+                        onChange={(e) => {
+                          setCareerForm((p) => ({
+                            ...p,
+                            phone: e.target.value,
+                          }));
+                          setCareerErrors((p) => ({ ...p, phone: "" }));
+                        }}
+                        className={`rounded-lg font-body focus:ring-indigo-500 focus:border-indigo-500 ${careerErrors.phone ? "border-destructive" : ""}`}
+                      />
+                      {careerErrors.phone && (
+                        <p
+                          data-ocid="careers.phone.error_state"
+                          className="font-body text-xs text-destructive"
+                        >
+                          {careerErrors.phone}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="mt-5 space-y-2">
+                    <Label
+                      htmlFor="career-email"
+                      className="font-body font-medium flex items-center gap-1.5"
+                    >
+                      <Mail className="h-3.5 w-3.5 text-indigo-600" />
+                      Email Address <span className="text-destructive">*</span>
                     </Label>
                     <Input
-                      id="career-name"
-                      data-ocid="careers.name.input"
-                      placeholder="Jane Doe"
-                      value={careerForm.fullName}
+                      id="career-email"
+                      data-ocid="careers.email.input"
+                      type="email"
+                      placeholder="jane@example.com"
+                      value={careerForm.email}
                       onChange={(e) => {
+                        setCareerForm((p) => ({ ...p, email: e.target.value }));
+                        setCareerErrors((p) => ({ ...p, email: "" }));
+                      }}
+                      className={`rounded-lg font-body focus:ring-indigo-500 focus:border-indigo-500 ${careerErrors.email ? "border-destructive" : ""}`}
+                    />
+                    {careerErrors.email && (
+                      <p
+                        data-ocid="careers.email.error_state"
+                        className="font-body text-xs text-destructive"
+                      >
+                        {careerErrors.email}
+                      </p>
+                    )}
+                  </div>
+                  <div className="mt-5 space-y-2">
+                    <Label className="font-body font-medium flex items-center gap-1.5">
+                      <UploadCloud className="h-3.5 w-3.5 text-indigo-600" />
+                      Resume <span className="text-destructive">*</span>
+                    </Label>
+                    <label
+                      data-ocid="careers.resume.upload_button"
+                      className={`flex cursor-pointer flex-col items-center gap-3 rounded-xl border-2 border-dashed p-6 transition-colors hover:bg-indigo-50 ${careerErrors.resume ? "border-destructive" : "border-indigo-200 hover:border-indigo-400"}`}
+                    >
+                      <UploadCloud
+                        className={`h-8 w-8 ${careerErrors.resume ? "text-destructive" : "text-indigo-400"}`}
+                      />
+                      {careerFile ? (
+                        <span className="font-body text-sm font-medium text-foreground">
+                          {careerFile.name}
+                        </span>
+                      ) : (
+                        <span className="font-body text-sm text-muted-foreground">
+                          Click to upload your resume (.pdf or .docx)
+                        </span>
+                      )}
+                      <input
+                        type="file"
+                        accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        className="hidden"
+                        onChange={(e) => {
+                          const f = e.target.files?.[0] || null;
+                          setCareerFile(f);
+                          setCareerErrors((p) => ({ ...p, resume: "" }));
+                        }}
+                      />
+                    </label>
+                    {careerErrors.resume && (
+                      <p
+                        data-ocid="careers.resume.error_state"
+                        className="font-body text-xs text-destructive"
+                      >
+                        {careerErrors.resume}
+                      </p>
+                    )}
+                  </div>
+                  <div className="mt-5 space-y-2">
+                    <Label
+                      htmlFor="career-cover"
+                      className="font-body font-medium flex items-center gap-1.5"
+                    >
+                      <MessageSquare className="h-3.5 w-3.5 text-indigo-600" />
+                      Cover Note{" "}
+                      <span className="text-muted-foreground font-normal text-xs">
+                        (optional)
+                      </span>
+                    </Label>
+                    <Textarea
+                      id="career-cover"
+                      data-ocid="careers.cover.textarea"
+                      placeholder="Tell us a little about yourself and why you'd like to work with Lean Genie..."
+                      rows={4}
+                      value={careerForm.coverNote}
+                      onChange={(e) =>
                         setCareerForm((p) => ({
                           ...p,
-                          fullName: e.target.value,
-                        }));
-                        setCareerErrors((p) => ({ ...p, fullName: "" }));
-                      }}
-                      className={`rounded-lg font-body ${careerErrors.fullName ? "border-destructive" : ""}`}
+                          coverNote: e.target.value,
+                        }))
+                      }
+                      className="rounded-lg font-body resize-none focus:ring-indigo-500 focus:border-indigo-500"
                     />
-                    {careerErrors.fullName && (
-                      <p
-                        data-ocid="careers.name.error_state"
-                        className="font-body text-xs text-destructive"
-                      >
-                        {careerErrors.fullName}
-                      </p>
-                    )}
                   </div>
-                  <div className="space-y-2">
-                    <Label
-                      htmlFor="career-phone"
-                      className="font-body font-medium"
-                    >
-                      Phone Number <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="career-phone"
-                      data-ocid="careers.phone.input"
-                      placeholder="+1 (604) 555-0100"
-                      value={careerForm.phone}
-                      onChange={(e) => {
-                        setCareerForm((p) => ({ ...p, phone: e.target.value }));
-                        setCareerErrors((p) => ({ ...p, phone: "" }));
-                      }}
-                      className={`rounded-lg font-body ${careerErrors.phone ? "border-destructive" : ""}`}
-                    />
-                    {careerErrors.phone && (
-                      <p
-                        data-ocid="careers.phone.error_state"
-                        className="font-body text-xs text-destructive"
-                      >
-                        {careerErrors.phone}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div className="mt-5 space-y-2">
-                  <Label
-                    htmlFor="career-email"
-                    className="font-body font-medium"
+                  <Button
+                    type="submit"
+                    data-ocid="careers.submit_button"
+                    size="lg"
+                    disabled={isSubmittingCareer}
+                    className="mt-6 w-full rounded-full bg-indigo-700 hover:bg-indigo-600 font-body font-semibold text-white"
                   >
-                    Email Address <span className="text-destructive">*</span>
-                  </Label>
-                  <Input
-                    id="career-email"
-                    data-ocid="careers.email.input"
-                    type="email"
-                    placeholder="jane@example.com"
-                    value={careerForm.email}
-                    onChange={(e) => {
-                      setCareerForm((p) => ({ ...p, email: e.target.value }));
-                      setCareerErrors((p) => ({ ...p, email: "" }));
-                    }}
-                    className={`rounded-lg font-body ${careerErrors.email ? "border-destructive" : ""}`}
-                  />
-                  {careerErrors.email && (
-                    <p
-                      data-ocid="careers.email.error_state"
-                      className="font-body text-xs text-destructive"
-                    >
-                      {careerErrors.email}
-                    </p>
-                  )}
-                </div>
-                <div className="mt-5 space-y-2">
-                  <Label className="font-body font-medium">
-                    Resume <span className="text-destructive">*</span>
-                  </Label>
-                  <label
-                    data-ocid="careers.resume.upload_button"
-                    className={`flex cursor-pointer flex-col items-center gap-3 rounded-xl border-2 border-dashed p-6 transition-colors hover:bg-aqua-50 ${careerErrors.resume ? "border-destructive" : "border-border hover:border-aqua-400"}`}
-                  >
-                    <UploadCloud
-                      className={`h-8 w-8 ${careerErrors.resume ? "text-destructive" : "text-aqua-400"}`}
-                    />
-                    {careerFile ? (
-                      <span className="font-body text-sm font-medium text-foreground">
-                        {careerFile.name}
-                      </span>
+                    {isSubmittingCareer ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Submitting...
+                      </>
                     ) : (
-                      <span className="font-body text-sm text-muted-foreground">
-                        Click to upload your resume (.pdf or .docx)
-                      </span>
+                      <>
+                        Apply Now
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </>
                     )}
-                    <input
-                      type="file"
-                      accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                      className="hidden"
-                      onChange={(e) => {
-                        const f = e.target.files?.[0] || null;
-                        setCareerFile(f);
-                        setCareerErrors((p) => ({ ...p, resume: "" }));
-                      }}
-                    />
-                  </label>
-                  {careerErrors.resume && (
-                    <p
-                      data-ocid="careers.resume.error_state"
-                      className="font-body text-xs text-destructive"
-                    >
-                      {careerErrors.resume}
-                    </p>
-                  )}
-                </div>
-                <div className="mt-5 space-y-2">
-                  <Label
-                    htmlFor="career-cover"
-                    className="font-body font-medium"
-                  >
-                    Cover Note{" "}
-                    <span className="text-muted-foreground font-normal text-xs">
-                      (optional)
-                    </span>
-                  </Label>
-                  <Textarea
-                    id="career-cover"
-                    data-ocid="careers.cover.textarea"
-                    placeholder="Tell us a little about yourself and why you'd like to work with Lean Genie..."
-                    rows={4}
-                    value={careerForm.coverNote}
-                    onChange={(e) =>
-                      setCareerForm((p) => ({
-                        ...p,
-                        coverNote: e.target.value,
-                      }))
-                    }
-                    className="rounded-lg font-body resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  data-ocid="careers.submit_button"
-                  size="lg"
-                  disabled={isSubmittingCareer}
-                  className="mt-6 w-full rounded-full font-body font-semibold sm:w-auto"
-                >
-                  {isSubmittingCareer ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Submitting...
-                    </>
-                  ) : (
-                    <>
-                      Apply Now
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
-              </form>
+                  </Button>
+                </form>
+              </div>
             </div>
           </div>
         </section>
@@ -2173,12 +2281,12 @@ function App() {
               alt=""
               className="h-full w-full object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-900/92 via-slate-900/75 to-aqua-900/55" />
+            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/92 via-indigo-900/75 to-indigo-800/50" />
           </div>
           <div className="relative z-10">
             <div className="container">
               <div className="mx-auto max-w-3xl text-center mb-10">
-                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-400 md:text-5xl">
+                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-400 md:text-5xl">
                   Schedule a Call
                 </h1>
                 <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
@@ -2205,19 +2313,19 @@ function App() {
             <div className="mb-16 grid gap-6 sm:grid-cols-3">
               {[
                 {
-                  icon: <Mail className="h-5 w-5 text-aqua-600" />,
+                  icon: <Mail className="h-5 w-5 text-indigo-700" />,
                   title: "Email Us",
                   detail: "info@leangenieadvisors.ca",
                   action: null,
                 },
                 {
-                  icon: <MapPin className="h-5 w-5 text-aqua-600" />,
+                  icon: <MapPin className="h-5 w-5 text-indigo-700" />,
                   title: "Visit Us",
                   detail: "Delta, British Columbia, Canada",
                   action: null,
                 },
                 {
-                  icon: <CalendarCheck className="h-5 w-5 text-aqua-600" />,
+                  icon: <CalendarCheck className="h-5 w-5 text-indigo-700" />,
                   title: "Schedule Call",
                   detail: "Schedule a free 30-min consultation",
                   action: "book",
@@ -2227,11 +2335,11 @@ function App() {
                   key={card.title}
                   className="flex flex-col items-start gap-4 rounded-2xl border border-border bg-white p-6 shadow-sm"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-aqua-50 border border-aqua-100">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 border border-indigo-100">
                     {card.icon}
                   </div>
                   <div>
-                    <p className="mb-1 font-body text-xs font-semibold uppercase tracking-widest text-aqua-600">
+                    <p className="mb-1 font-body text-xs font-semibold uppercase tracking-widest text-indigo-700">
                       {card.title}
                     </p>
                     <p className="font-body text-sm text-muted-foreground">
@@ -2244,7 +2352,7 @@ function App() {
                       variant="outline"
                       size="sm"
                       onClick={() => scrollToSection(card.action!)}
-                      className="mt-auto rounded-full border-aqua-300 font-body text-aqua-700 hover:bg-aqua-50"
+                      className="mt-auto rounded-full border-indigo-300 font-body text-indigo-700 hover:bg-indigo-50 hover:border-indigo-500"
                     >
                       Schedule Now
                       <ArrowRight className="ml-2 h-3.5 w-3.5" />
@@ -2256,7 +2364,7 @@ function App() {
 
             <div className="grid gap-16 lg:grid-cols-[1.4fr,1fr]">
               <div>
-                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-aqua-600 md:text-5xl">
+                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
                   Get In Touch
                 </h1>
                 <h2 className="mb-6 font-display text-2xl font-semibold text-foreground mt-2">
@@ -2375,7 +2483,7 @@ function App() {
                     data-ocid="contact.submit_button"
                     size="lg"
                     disabled={isSubmitting}
-                    className="mt-6 w-full rounded-full font-body font-semibold sm:w-auto"
+                    className="mt-6 w-full rounded-full bg-indigo-700 hover:bg-indigo-600 font-body font-semibold text-white sm:w-auto"
                   >
                     {isSubmitting ? (
                       <>
@@ -2393,14 +2501,14 @@ function App() {
               </div>
 
               <div className="flex flex-col gap-6">
-                <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white">
+                <div className="rounded-2xl bg-gradient-to-br from-indigo-950 to-indigo-900 p-8 text-white">
                   <h3 className="mb-6 font-display text-xl font-bold text-white">
                     Contact Details
                   </h3>
                   <div className="space-y-5">
                     <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-aqua-500/20">
-                        <MapPin className="h-4 w-4 text-aqua-400" />
+                      <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-indigo-600/25">
+                        <MapPin className="h-4 w-4 text-indigo-400" />
                       </div>
                       <div>
                         <p className="font-body text-xs font-semibold uppercase tracking-wider text-white/40">
@@ -2412,8 +2520,8 @@ function App() {
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-aqua-500/20">
-                        <Mail className="h-4 w-4 text-aqua-400" />
+                      <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-indigo-600/25">
+                        <Mail className="h-4 w-4 text-indigo-400" />
                       </div>
                       <div>
                         <p className="font-body text-xs font-semibold uppercase tracking-wider text-white/40">
@@ -2425,8 +2533,8 @@ function App() {
                       </div>
                     </div>
                     <div className="flex items-start gap-3">
-                      <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-aqua-500/20">
-                        <Clock className="h-4 w-4 text-aqua-400" />
+                      <div className="mt-0.5 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-lg bg-indigo-600/25">
+                        <Clock className="h-4 w-4 text-indigo-400" />
                       </div>
                       <div>
                         <p className="font-body text-xs font-semibold uppercase tracking-wider text-white/40">
@@ -2442,7 +2550,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-aqua-200 bg-gradient-to-br from-aqua-50 to-white p-7">
+                <div className="rounded-2xl border border-indigo-200 bg-gradient-to-br from-indigo-50 to-white p-7">
                   <h4 className="mb-3 font-display text-lg font-bold text-foreground">
                     Why Lean Genie?
                   </h4>
@@ -2452,7 +2560,7 @@ function App() {
                         key={point}
                         className="flex items-start gap-2 font-body text-sm text-muted-foreground"
                       >
-                        <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-aqua-500 font-bold text-[10px] text-white">
+                        <span className="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full bg-indigo-700 font-bold text-[10px] text-white">
                           ✓
                         </span>
                         {point}
@@ -2469,72 +2577,126 @@ function App() {
       {/* Footer */}
       <footer className="bg-slate-950 pb-8 pt-16 text-white">
         <div className="container">
-          <div className="mb-12 grid gap-10 md:grid-cols-[1.6fr,1fr,1fr]">
+          <div className="mb-12 grid gap-10 md:grid-cols-3">
+            {/* Column 1 — Contact Info */}
             <div>
-              <div className="mb-4 font-display text-xl font-bold">
-                <span className="text-aqua-400">Lean Genie</span>{" "}
-                <span className="text-white">Advisors</span>
-              </div>
-              <p className="max-w-xs font-body text-sm leading-relaxed text-white/50">
-                Operational excellence, lean systems, and practical innovation
-                for modern Vancouver businesses.
+              <p className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-indigo-400">
+                Contact Info
               </p>
+              <div className="mb-4 font-display text-xl font-bold">
+                <span className="gradient-text">Lean Genie Advisors Inc.</span>
+              </div>
+              <p className="mb-6 max-w-xs font-body text-sm leading-relaxed text-white/50">
+                Operational excellence for modern SMBs.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400" />
+                  <span className="font-body text-sm text-white/60">
+                    Delta, British Columbia, Canada
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400" />
+                  <a
+                    href="mailto:info@leangenieadvisors.ca"
+                    className="font-body text-sm text-white/60 hover:text-indigo-300 transition-colors"
+                  >
+                    info@leangenieadvisors.ca
+                  </a>
+                </li>
+                <li className="flex items-start gap-3">
+                  <Clock className="mt-0.5 h-4 w-4 shrink-0 text-indigo-400" />
+                  <span className="font-body text-sm text-white/60">
+                    Mon–Fri | 8:00 AM – 7:00 PM PST
+                  </span>
+                </li>
+              </ul>
+              <div className="mt-6 flex items-center gap-4">
+                <a
+                  href="https://www.linkedin.com/company/lean-genie-advisors-inc/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all hover:border-indigo-500 hover:bg-indigo-900/40 hover:text-indigo-300"
+                >
+                  <Linkedin size={16} />
+                </a>
+                <a
+                  href="mailto:info@leangenieadvisors.ca"
+                  aria-label="Email"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-all hover:border-indigo-500 hover:bg-indigo-900/40 hover:text-indigo-300"
+                >
+                  <Mail size={16} />
+                </a>
+              </div>
             </div>
 
+            {/* Column 2 — Quick Links */}
             <div>
-              <h3 className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-white/40">
-                Navigation
-              </h3>
-              <ul className="space-y-3 font-body text-sm text-white/60">
-                {FOOTER_NAV.map((id) => (
-                  <li key={id}>
+              <p className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-indigo-400">
+                Quick Links
+              </p>
+              <ul className="space-y-3">
+                {[
+                  { id: "services", label: "Services" },
+                  { id: "industries", label: "Industries" },
+                  { id: "about", label: "About" },
+                  { id: "case-studies", label: "Case Studies" },
+                  { id: "insights", label: "Insights" },
+                  { id: "companies", label: "Global Impact" },
+                  { id: "resources", label: "Resources" },
+                  { id: "careers", label: "Careers" },
+                  { id: "book", label: "Schedule Call" },
+                  { id: "contact", label: "Get In Touch" },
+                ].map((link) => (
+                  <li key={link.id}>
                     <button
                       type="button"
-                      data-ocid={`footer.${id}.link`}
-                      onClick={() => scrollToSection(id)}
-                      className="capitalize transition-colors duration-200 hover:text-aqua-400"
+                      data-ocid={`footer.${link.id}.link`}
+                      onClick={() => scrollToSection(link.id)}
+                      className="font-body text-sm text-white/50 transition-colors duration-200 hover:text-indigo-300"
                     >
-                      {id.replace("-", " ")}
+                      {link.label}
                     </button>
                   </li>
                 ))}
               </ul>
             </div>
 
+            {/* Column 3 — Brand Statement */}
             <div>
-              <h3 className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-white/40">
-                Focus Areas
-              </h3>
-              <ul className="space-y-3 font-body text-sm text-white/60">
-                {FOCUS_AREAS.map((area) => (
-                  <li key={area}>{area}</li>
-                ))}
-              </ul>
+              <p className="mb-5 font-body text-xs font-semibold uppercase tracking-widest text-indigo-400">
+                Our Mission
+              </p>
+              <p className="mb-3 font-display text-xl font-bold text-white">
+                Strategic Vision Meets Operational Excellence
+              </p>
+              <div className="mb-4 h-0.5 w-12 bg-indigo-700" />
+              <p className="mb-6 font-body text-sm leading-relaxed text-white/60">
+                We partner with SMBs across the Lower Mainland to eliminate
+                waste, build systems, and create lasting competitive advantage
+                through Lean Six Sigma and modern innovation frameworks.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Results-Driven", "Collaborative", "Excellence"].map(
+                  (badge) => (
+                    <span
+                      key={badge}
+                      className="rounded-full border border-indigo-700/40 bg-indigo-900/50 px-3 py-1 font-body text-xs text-indigo-300"
+                    >
+                      {badge}
+                    </span>
+                  ),
+                )}
+              </div>
             </div>
           </div>
 
           <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.linkedin.com/company/lean-genie-advisors-inc/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex items-center gap-2 text-white/50 transition-colors hover:text-aqua-400"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="mailto:info@leangenieadvisors.ca"
-                aria-label="Email"
-                className="flex items-center gap-2 text-white/50 transition-colors hover:text-aqua-400"
-              >
-                <Mail size={18} />
-              </a>
-            </div>
             <p className="font-body text-sm text-white/35">
               © {new Date().getFullYear()} Lean Genie Advisors Inc. All rights
-              reserved. · Vancouver, BC, Canada.
+              reserved. · Delta, BC, Canada.
             </p>
             <p className="font-body text-sm text-white/35">
               Built with ♥ using{" "}
@@ -2542,7 +2704,7 @@ function App() {
                 href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(window.location.hostname)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-aqua-400 transition-colors hover:text-aqua-300"
+                className="text-indigo-300 transition-colors hover:text-indigo-200"
               >
                 caffeine.ai
               </a>

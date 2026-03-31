@@ -64,18 +64,19 @@ export default {
           border:              "oklch(var(--sidebar-border))",
           ring:                "oklch(var(--sidebar-ring))",
         },
-        // Aqua / teal scale for direct utility use
-        aqua: {
-          50:  "oklch(0.97 0.025 200)",
-          100: "oklch(0.93 0.055 195)",
-          200: "oklch(0.86 0.095 193)",
-          300: "oklch(0.78 0.130 191)",
-          400: "oklch(0.68 0.155 190)",
-          500: "oklch(0.56 0.160 195)",
-          600: "oklch(0.48 0.145 196)",
-          700: "oklch(0.40 0.120 198)",
-          800: "oklch(0.30 0.090 200)",
-          900: "oklch(0.20 0.055 202)",
+        // Indigo scale for direct utility use
+        indigo: {
+          50:  "#f5f0ff",
+          100: "#ede5ff",
+          200: "#d8c6ff",
+          300: "#bb99ff",
+          400: "#9966ff",
+          500: "#7733ff",
+          600: "#6622ee",
+          700: "#4B0082",
+          800: "#3a006b",
+          900: "#28004d",
+          950: "#160028",
         },
       },
       fontFamily: {
@@ -92,9 +93,9 @@ export default {
       boxShadow: {
         card:        "0 2px 8px -2px rgba(0,0,0,0.07), 0 4px 16px -4px rgba(0,0,0,0.05)",
         "card-hover": "0 8px 24px -4px rgba(0,0,0,0.14), 0 16px 40px -8px rgba(0,0,0,0.10)",
-        "glow-sm":   "0 0 16px oklch(0.56 0.16 195 / 0.28)",
-        "glow-md":   "0 0 32px oklch(0.56 0.16 195 / 0.40)",
-        "glow-lg":   "0 0 48px oklch(0.56 0.16 195 / 0.50)",
+        "glow-sm":   "0 0 20px rgba(75, 0, 130, 0.35)",
+        "glow-md":   "0 0 40px rgba(75, 0, 130, 0.45)",
+        "glow-lg":   "0 0 60px rgba(75, 0, 130, 0.55)",
       },
       keyframes: {
         "accordion-down": {
