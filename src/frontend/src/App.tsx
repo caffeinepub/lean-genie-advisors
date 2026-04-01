@@ -835,14 +835,7 @@ function InsightsCarousel() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Background */}
-      <div className="absolute inset-0">
-        <img
-          src="/assets/generated/section-insights-bg.dim_1200x600.jpg"
-          alt=""
-          className="h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/92 via-indigo-900/75 to-indigo-800/50" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-800" />
 
       <div className="relative z-10 py-24 md:py-32">
         <div className="container">
@@ -976,19 +969,6 @@ function GlobalImpactSection() {
         </div>
       </div>
       <div className="container pt-12">
-        <div className="mb-12">
-          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
-            Global Impact
-          </h1>
-          <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
-            Companies Transformed by Lean Six Sigma
-          </h2>
-          <p className="max-w-xl font-body text-lg text-muted-foreground">
-            Leading organizations across North America have transformed their
-            operations with Lean Six Sigma.
-          </p>
-        </div>
-
         {/* Filter Buttons */}
         <div className="mb-10 flex gap-3 flex-wrap" data-ocid="companies.tab">
           {(["All", "Canada", "USA"] as const).map((f) => (
@@ -1409,13 +1389,14 @@ function App() {
                 {link.label}
               </button>
             ))}
-            <Button
+            <button
+              type="button"
               data-ocid="nav.contact.button"
               onClick={() => scrollToSection("contact")}
-              className="rounded-full px-6 font-body font-semibold"
+              className="font-body text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
             >
               Get in Touch
-            </Button>
+            </button>
           </nav>
 
           <button
@@ -1453,13 +1434,14 @@ function App() {
                     {link.label}
                   </button>
                 ))}
-                <Button
+                <button
+                  type="button"
                   data-ocid="nav.mobile.contact.button"
                   onClick={() => scrollToSection("contact")}
-                  className="w-full rounded-full"
+                  className="text-left font-body text-base font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
                 >
                   Get in Touch
-                </Button>
+                </button>
               </nav>
             </motion.div>
           )}
@@ -2386,15 +2368,8 @@ function App() {
 
         {/* Book a Meeting */}
         <section id="book" className="relative overflow-hidden py-24 md:py-32">
-          {/* Background - matching Insights style */}
-          <div className="absolute inset-0">
-            <img
-              src="/assets/generated/section-insights-bg.dim_1200x600.jpg"
-              alt=""
-              className="h-full w-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/92 via-indigo-900/75 to-indigo-800/50" />
-          </div>
+          {/* Background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-indigo-900 to-indigo-800" />
           <div className="relative z-10">
             <div className="container">
               <div className="mx-auto max-w-3xl text-center mb-10">
