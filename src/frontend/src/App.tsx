@@ -2369,10 +2369,48 @@ function App() {
                 <h2 className="mb-6 font-display text-2xl font-semibold text-foreground mt-2">
                   Let's Build a Better Operation
                 </h2>
-                <p className="mb-10 font-body text-lg text-muted-foreground">
+                <p className="mb-6 font-body text-lg text-muted-foreground">
                   Share a bit about your business and current challenges. We'll
                   follow up with a focused, no-obligation conversation.
                 </p>
+
+                <div className="mb-6 rounded-xl border border-indigo-100 bg-indigo-50 p-6">
+                  <p className="mb-3 font-body font-semibold text-indigo-700">
+                    Contact us if you need help with:
+                  </p>
+                  <ul className="space-y-2 font-body text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 flex-shrink-0" />
+                      Inefficient Processes
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 flex-shrink-0" />
+                      Low Profit Margins
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 flex-shrink-0" />
+                      Poor KPIs
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 flex-shrink-0" />
+                      Employee Productivity Issues
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-indigo-500 flex-shrink-0" />
+                      Founder Stuck in Daily Firefighting
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mb-10 rounded-xl border border-indigo-200 bg-white p-5 shadow-sm">
+                  <p className="font-body font-semibold text-indigo-700 mb-1">
+                    Our Value Differentiator
+                  </p>
+                  <p className="font-body text-muted-foreground">
+                    Plain language, implementation focused improvement for SMBs,
+                    no jargon, measurable results in 60 days.
+                  </p>
+                </div>
 
                 <form
                   onSubmit={handleSubmit}
