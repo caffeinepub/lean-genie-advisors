@@ -1118,6 +1118,116 @@ function ResourcesSection() {
   );
 }
 
+function DownloadableResourcesSection() {
+  const anim = useScrollAnimation({ threshold: 0.15 });
+
+  const resources = [
+    {
+      title: "The 7 Most Common Process Bottlenecks in Growing SMBs",
+      description:
+        "Identify and eliminate the hidden constraints slowing your growth. This guide walks through the 7 most common bottlenecks we see across SMBs — with practical Lean fixes for each.",
+      tags: ["Process Improvement", "Operations", "SMB Growth"],
+      file: "/downloads/process-bottlenecks.html",
+      filename: "LeanGenie-7-Process-Bottlenecks-SMBs.html",
+      icon: "bottleneck",
+    },
+    {
+      title: "Most Common Wastes in SMBs",
+      description:
+        "A Lean-based guide to identifying non-value-added activities that are quietly costing your business time and money. Based on the proven Toyota Production System TIMWOODS framework.",
+      tags: ["Lean Six Sigma", "Waste Elimination", "Efficiency"],
+      file: "/downloads/common-wastes-smbs.html",
+      filename: "LeanGenie-Common-Wastes-SMBs.html",
+      icon: "waste",
+    },
+  ];
+
+  return (
+    <section id="downloadable-resources" className="bg-white py-24 md:py-32">
+      <div className="container">
+        <div className="mb-14">
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
+            Free Downloads
+          </h1>
+          <h2 className="mb-4 font-display text-2xl font-semibold text-muted-foreground mt-2">
+            Practical Guides for SMB Leaders
+          </h2>
+          <p className="max-w-2xl font-body text-lg text-muted-foreground">
+            Download our free guides to start identifying inefficiencies and
+            unlocking profit in your business — no jargon, just actionable
+            insights.
+          </p>
+        </div>
+        <div
+          ref={anim.ref as React.RefObject<HTMLDivElement>}
+          className="grid gap-8 md:grid-cols-2"
+        >
+          {resources.map((res, i) => (
+            <motion.div
+              key={res.title}
+              initial={{ opacity: 0, y: 28 }}
+              animate={anim.isVisible ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.15, duration: 0.55 }}
+              className="group flex flex-col rounded-2xl border-2 border-indigo-100 bg-gradient-to-br from-white to-indigo-50/40 p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-indigo-300"
+            >
+              {/* Icon Badge */}
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-indigo-700 text-white shadow-md">
+                {res.icon === "bottleneck" ? (
+                  <Layers className="h-7 w-7" />
+                ) : (
+                  <Wrench className="h-7 w-7" />
+                )}
+              </div>
+              <h3 className="mb-3 font-display text-xl font-bold text-foreground leading-snug transition-colors duration-300 group-hover:text-indigo-700">
+                {res.title}
+              </h3>
+              <p className="mb-5 font-body leading-relaxed text-muted-foreground flex-1 text-sm">
+                {res.description}
+              </p>
+              {/* Tags */}
+              <div className="mb-6 flex flex-wrap gap-2">
+                {res.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full bg-indigo-100 px-3 py-1 font-body text-xs font-semibold text-indigo-700"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              {/* Download Button */}
+              <a
+                href={res.file}
+                download={res.filename}
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-indigo-700 px-5 py-3 font-body text-sm font-semibold text-white shadow transition-all duration-300 hover:bg-indigo-800 hover:shadow-md active:scale-95 w-full"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-label="Download"
+                  role="img"
+                >
+                  <title>Download</title>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
+                </svg>
+                Download Free Guide
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -1969,6 +2079,9 @@ function App() {
 
         {/* Resources */}
         <ResourcesSection />
+
+        {/* Downloadable Resources */}
+        <DownloadableResourcesSection />
 
         {/* Careers */}
         <section id="careers" className="bg-white py-24 md:py-32">
