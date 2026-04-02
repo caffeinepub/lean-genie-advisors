@@ -18,6 +18,7 @@ import {
   ChevronDown,
   ChevronLeft,
   ChevronRight,
+  ChevronUp,
   Clock,
   Factory,
   HeartPulse,
@@ -630,11 +631,21 @@ type CaseStudy = (typeof CASE_STUDIES)[number];
 function ExpandableCaseStudyCard({
   study,
   index,
+  externalExpanded,
+  onIndividualToggle,
 }: {
   study: CaseStudy;
   index: number;
+  externalExpanded?: boolean;
+  onIndividualToggle?: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    if (externalExpanded !== undefined) {
+      setExpanded(externalExpanded);
+    }
+  }, [externalExpanded]);
 
   return (
     <motion.div
@@ -743,7 +754,10 @@ function ExpandableCaseStudyCard({
         <button
           type="button"
           data-ocid={`case-studies.toggle.${index + 1}`}
-          onClick={() => setExpanded((prev) => !prev)}
+          onClick={() => {
+            setExpanded((prev) => !prev);
+            onIndividualToggle?.();
+          }}
           className="flex w-full items-center justify-between font-body text-sm font-semibold text-indigo-700 transition-colors duration-200 hover:text-indigo-600"
         >
           <span>{expanded ? "Hide Details" : "View Details"}</span>
@@ -756,6 +770,63 @@ function ExpandableCaseStudyCard({
         </button>
       </div>
     </motion.div>
+  );
+}
+
+function CaseStudiesSection() {
+  const [allExpanded, setAllExpanded] = useState<boolean | null>(null);
+
+  return (
+    <>
+      <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <div>
+          <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
+            Case Studies
+          </h1>
+          <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
+            Impact in Action
+          </h2>
+          <p className="max-w-xl font-body text-lg text-muted-foreground">
+            Examples of how structured, lean-focused improvements translate into
+            measurable business results.
+          </p>
+        </div>
+        <div
+          className="flex items-center gap-3 flex-shrink-0"
+          data-ocid="case-studies.panel"
+        >
+          <button
+            type="button"
+            data-ocid="case-studies.secondary_button"
+            onClick={() => setAllExpanded(false)}
+            className="flex items-center gap-2 rounded-lg border border-indigo-700 px-4 py-2 font-body text-sm font-semibold text-indigo-700 transition-colors duration-200 hover:bg-indigo-50"
+          >
+            <ChevronUp className="h-4 w-4" />
+            Collapse All
+          </button>
+          <button
+            type="button"
+            data-ocid="case-studies.primary_button"
+            onClick={() => setAllExpanded(true)}
+            className="flex items-center gap-2 rounded-lg bg-indigo-700 px-4 py-2 font-body text-sm font-semibold text-white transition-colors duration-200 hover:bg-indigo-800"
+          >
+            <ChevronDown className="h-4 w-4" />
+            Expand All
+          </button>
+        </div>
+      </div>
+      <div className="grid gap-8 md:grid-cols-2">
+        {CASE_STUDIES.map((study, index) => (
+          <ExpandableCaseStudyCard
+            key={study.id}
+            study={study}
+            index={index}
+            externalExpanded={allExpanded ?? undefined}
+            onIndividualToggle={() => setAllExpanded(null)}
+          />
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -2029,27 +2100,7 @@ function App() {
         {/* Case Studies */}
         <section id="case-studies" className="py-24 md:py-32">
           <div className="container">
-            <div className="mb-16">
-              <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-700 md:text-5xl">
-                Case Studies
-              </h1>
-              <h2 className="mb-4 font-display text-2xl font-semibold text-foreground mt-2">
-                Impact in Action
-              </h2>
-              <p className="max-w-xl font-body text-lg text-muted-foreground">
-                Examples of how structured, lean-focused improvements translate
-                into measurable business results.
-              </p>
-            </div>
-            <div className="grid gap-8 md:grid-cols-2">
-              {CASE_STUDIES.map((study, index) => (
-                <ExpandableCaseStudyCard
-                  key={study.id}
-                  study={study}
-                  index={index}
-                />
-              ))}
-            </div>
+            <CaseStudiesSection />
           </div>
         </section>
 
