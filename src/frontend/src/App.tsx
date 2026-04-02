@@ -1445,36 +1445,11 @@ function App() {
             <span className="gradient-text">Lean Genie Advisors Inc.</span>
           </div>
 
-          <nav
-            className="hidden items-center gap-8 md:flex"
-            aria-label="Main navigation"
-          >
-            {NAV_LINKS.map((link) => (
-              <button
-                type="button"
-                key={link.id}
-                data-ocid={`nav.${link.id}.link`}
-                onClick={() => scrollToSection(link.id)}
-                className="font-body text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
-              >
-                {link.label}
-              </button>
-            ))}
-            <button
-              type="button"
-              data-ocid="nav.contact.button"
-              onClick={() => scrollToSection("contact")}
-              className="font-body text-sm font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
-            >
-              Get in Touch
-            </button>
-          </nav>
-
           <button
             type="button"
             data-ocid="nav.mobile_menu.button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-md p-2 text-foreground md:hidden"
+            className="rounded-md p-2 text-foreground"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -1491,7 +1466,7 @@ function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden border-t border-border/60 bg-white md:hidden"
+              className="overflow-hidden border-t border-border/60 bg-white"
             >
               <nav className="container flex flex-col gap-5 py-5">
                 {NAV_LINKS.map((link) => (
