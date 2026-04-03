@@ -1111,14 +1111,8 @@ function ResourcesSection() {
           </p>
         </div>
 
-        {/* Operations feature image */}
-        <div className="relative mb-12 overflow-hidden rounded-2xl h-52 md:h-64">
-          <img
-            src="/assets/generated/section-operations.dim_800x500.jpg"
-            alt="Operations"
-            className="h-full w-full object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/70 via-slate-900/30 to-transparent rounded-2xl" />
+        {/* Operations feature banner */}
+        <div className="relative mb-12 overflow-hidden rounded-2xl h-52 md:h-64 bg-gradient-to-r from-indigo-900 via-indigo-800 to-indigo-700">
           <div className="absolute inset-0 flex items-center px-8">
             <p className="font-display text-xl font-bold text-white md:text-2xl max-w-lg">
               Transforming operations across Metro Vancouver and beyond
@@ -1677,30 +1671,22 @@ function App() {
           </div>
         </section>
 
-        {/* Growth & Team Banner */}
+        {/* Our Impact Banner */}
         <section className="relative overflow-hidden py-0">
-          <div className="relative h-[480px] w-full">
-            <img
-              src="/assets/generated/multicultural-team-growth.dim_1200x675.jpg"
-              alt="Multicultural team reviewing business growth charts"
-              className="h-full w-full object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/80 via-indigo-900/50 to-transparent" />
-            <div className="absolute inset-0 flex items-center">
-              <div className="container">
-                <div className="max-w-xl text-white">
-                  <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-300 md:text-5xl">
-                    Our Impact
-                  </h1>
-                  <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
-                    Driving Growth Across Every Engagement
-                  </h2>
-                  <p className="font-body text-base leading-relaxed text-white/80">
-                    Our diverse team of experts partners with your organization
-                    to deliver measurable, lasting results -- backed by data and
-                    driven by collaboration.
-                  </p>
-                </div>
+          <div className="relative h-[480px] w-full bg-gradient-to-r from-indigo-950 via-indigo-900 to-indigo-800 flex items-center">
+            <div className="container">
+              <div className="max-w-xl text-white">
+                <h1 className="mb-3 font-display text-4xl font-bold tracking-tight text-indigo-300 md:text-5xl">
+                  Our Impact
+                </h1>
+                <h2 className="mb-4 font-display text-2xl font-semibold text-white mt-2">
+                  Driving Growth Across Every Engagement
+                </h2>
+                <p className="font-body text-base leading-relaxed text-white/80">
+                  Our diverse team of experts partners with your organization to
+                  deliver measurable, lasting results -- backed by data and
+                  driven by collaboration.
+                </p>
               </div>
             </div>
           </div>
