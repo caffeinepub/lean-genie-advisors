@@ -1433,7 +1433,7 @@ function App() {
       <Toaster position="top-right" richColors />
 
       {/* Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-lg shadow-sm border-b border-indigo-100/60">
+      <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-lg shadow-sm border-b border-indigo-100/60 relative">
         <div className="container flex h-18 items-center justify-between py-4">
           <div className="font-display text-xl font-bold tracking-tight">
             <span className="gradient-text">Lean Genie Advisors Inc.</span>
@@ -1443,7 +1443,7 @@ function App() {
             type="button"
             data-ocid="nav.mobile_menu.button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="rounded-md p-2 text-foreground"
+            className="rounded-md p-2 bg-[#0a1628] hover:bg-[#112040] text-white transition-colors"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -1457,19 +1457,19 @@ function App() {
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="overflow-hidden border-t border-border/60 bg-white"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="absolute right-0 top-full w-64 shadow-xl rounded-bl-lg overflow-hidden bg-[#0a1628] z-50"
             >
-              <nav className="container flex flex-col gap-5 py-5">
+              <nav className="flex flex-col gap-1 py-3 px-4">
                 {NAV_LINKS.map((link) => (
                   <button
                     type="button"
                     key={link.id}
                     data-ocid={`nav.mobile.${link.id}.link`}
                     onClick={() => scrollToSection(link.id)}
-                    className="text-left font-body text-base font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
+                    className="text-left font-body text-sm font-medium text-white/90 hover:text-indigo-300 hover:bg-white/10 rounded px-2 py-2 transition-colors duration-200 w-full"
                   >
                     {link.label}
                   </button>
@@ -1478,7 +1478,7 @@ function App() {
                   type="button"
                   data-ocid="nav.mobile.contact.button"
                   onClick={() => scrollToSection("contact")}
-                  className="text-left font-body text-base font-medium text-slate-600 hover:text-indigo-700 transition-colors duration-200"
+                  className="text-left font-body text-sm font-medium text-white/90 hover:text-indigo-300 hover:bg-white/10 rounded px-2 py-2 transition-colors duration-200 w-full"
                 >
                   Get in Touch
                 </button>
